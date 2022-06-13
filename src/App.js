@@ -1,10 +1,16 @@
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
+import InitialHome from "./components/InitialHome";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <InitialHome />
+      </div>
+    </BrowserRouter>
   );
 }
 
