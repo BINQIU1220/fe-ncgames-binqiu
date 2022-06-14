@@ -10,10 +10,8 @@ const InitialHome = () => {
   const [reviews, setReviews] = useState([]);
   const [category, setCategory] = useState([]);
   const [isCategory, setIsCategory] = useState([]);
-  const [urlToShare, setUrlToShare] = useState(
-    "https://be-nc-games-binqiu.herokuapp.com/api/reviews"
-  );
   const [isLoading, setIsLoading] = useState(true);
+  let urlToShare = window.location.href;
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,10 +26,6 @@ const InitialHome = () => {
           console.log(err);
         });
     } else {
-      setUrlToShare(
-        `https://be-nc-games-binqiu.herokuapp.com/api/reviews/${category[0]}`
-      );
-
       getReviewsByCategory(category[0])
         .then((res) => {
           setReviews(res);

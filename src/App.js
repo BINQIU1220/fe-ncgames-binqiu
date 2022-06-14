@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import InitialHome from "./components/InitialHome";
-import IsCategory from "./components/IsCatogory";
 
 function App() {
   return (
