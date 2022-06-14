@@ -1,0 +1,82 @@
+.single-review-image {
+    width: 80%;
+    height: auto;
+    margin-top: 1.5rem;
+}
+
+#show-comments-btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: absolute;
+    top: 115px;
+    right: 205px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#show-comments-btn:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+
+#show-all-review-btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: absolute;
+    top: 115px;
+    right: 40px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#show-all-review-btn:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+
+
+@media (min-width: 600px) {
+    .single-review-image {
+        width: 55%;
+        margin-top: 3rem;
+    }
+
+    #single-review-body {
+        width: 75vw;
+        margin-left: 12rem;
+    }
+
+    #show-comments-btn {
+        position: absolute;
+        top: 105px;
+        right: 950px;
+        padding: 0.25em 0.75em;
+    }
+
+    #show-all-review-btn {
+        position: absolute;
+        top: 105px;
+        right: 450px;
+        padding: 0.25em 0.75em;
+    }
+}

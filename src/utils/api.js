@@ -23,3 +23,9 @@ export const getReviewsByCategory = (category) => {
     return res.data.reviews;
   });
 };
+
+export const getReviewsByIdy = (review_id) => {
+  return gamesApi.get(`reviews/${review_id}`).then((res) => {
+    return res.data.review;
+  });
+};

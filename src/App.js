@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import InitialHome from "./components/InitialHome";
+import SingleReview from "./components/SingleReview";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<InitialHome />} />
           <Route path="/:category" element={<InitialHome />} />
+          <Route path="/reviews/:review_id" element={<SingleReview />} />
         </Routes>
       </div>
     </BrowserRouter>

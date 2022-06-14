@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "../styling/InitialHome.css";
 import IsCatogory from "./IsCatogory";
+import SingleReview from "./SingleReview";
+import { useNavigate } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
 import { GoThumbsup, GoThumbsdown } from "react-icons/go";
@@ -11,6 +13,7 @@ const InitialHome = () => {
   const [category, setCategory] = useState([]);
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
   let urlToShare = window.location.href;
 
   useEffect(() => {
@@ -93,7 +96,15 @@ const InitialHome = () => {
                 <GoThumbsup id="thumb-up" />
                 <GoThumbsdown id="thumb-down" />
               </div>
-              <button id="more-info">More</button>
+              <button
+                id="more-info-btn"
+                key={review.review_id}
+                onClick={() => {
+                  navigate(`/reviews/${review.review_id}`);
+                }}
+              >
+                More
+              </button>
             </div>
           );
         })}
