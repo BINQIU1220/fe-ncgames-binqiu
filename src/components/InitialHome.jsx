@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styling/InitialHome.css";
+import IsCatogory from "./IsCatogory";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
 import { GoThumbsup, GoThumbsdown } from "react-icons/go";
@@ -53,35 +54,16 @@ const InitialHome = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(urlToShare, "<<<<ulr in outside");
+
   return (
     <main>
       <section id="initialhome-options">
-        <div id="slect-category">
-          <select
-            id="category-name"
-            name="category"
-            defaultValue=""
-            onChange={(event) => {
-              setCategory([event.target.value]);
-              setIsCategory([event.target.value]);
-            }}
-          >
-            <option value="" key="ask-to-select">
-              Select a category
-            </option>
-            <option value="all" key="all">
-              Show all categories
-            </option>
-            {category.map((elem) => {
-              return (
-                <option value={elem.slug} key={elem.slug}>
-                  {elem.slug}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+        <IsCatogory
+          category={category}
+          setCategory={setCategory}
+          setIsCategory={setIsCategory}
+        />
+
         <form id="select-sort">
           <select id="sort-name" name="sort-name">
             <option value="">Sort By</option>
