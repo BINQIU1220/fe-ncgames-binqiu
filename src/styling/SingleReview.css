@@ -53,8 +53,14 @@
     transform: translate3d(0, 2px, 0);
 }
 
+#thumb-up {
+    margin-right:1rem;
+    margin-top: 0.5rem;
+}
 
-
+#single-review-category {
+   margin-left: 1rem;
+}
 @media (min-width: 600px) {
     .single-review-image {
         width: 55%;
