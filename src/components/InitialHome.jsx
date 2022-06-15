@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styling/InitialHome.css";
 import IsCatogory from "./IsCatogory";
-import SingleReview from "./SingleReview";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
 import { GoThumbsup, GoThumbsdown } from "react-icons/go";
@@ -14,12 +13,23 @@ const InitialHome = () => {
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  let { category_name } = useParams();
+
   let urlToShare = window.location.href;
 
   useEffect(() => {
     setIsLoading(true);
 
-    if (category.length > 1 || category.length === 0 || category[0] === "all") {
+    if (category_name && category.length > 1 && category_name !== "all") {
+      getReviewsByCategory(category_name)
+        .then((res) => {
+          setReviews(res);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (category_name === "all") {
       getReviews()
         .then((res) => {
           setReviews(res);
@@ -29,7 +39,7 @@ const InitialHome = () => {
           console.log(err);
         });
     } else {
-      getReviewsByCategory(category[0])
+      getReviewsByCategory(category_name)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
@@ -100,7 +110,7 @@ const InitialHome = () => {
                 id="more-info-btn"
                 key={review.review_id}
                 onClick={() => {
-                  navigate(`/reviews/${review.review_id}`);
+                  navigate(`/reviews/review_id/${review.review_id}`);
                 }}
               >
                 More

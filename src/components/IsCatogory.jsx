@@ -12,7 +12,7 @@ const IsCategory = ({ category, setCategory, setIsCategory }) => {
         onChange={(event) => {
           setCategory([event.target.value]);
           setIsCategory([event.target.value]);
-          navigate(`/${event.target.value}`);
+          navigate(`/reviews/category_name/${event.target.value}`);
         }}
       >
         <option value="" key="ask-to-select">

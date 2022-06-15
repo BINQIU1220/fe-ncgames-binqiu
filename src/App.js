@@ -11,8 +11,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<InitialHome />} />
-          <Route path="/:category" element={<InitialHome />} />
-          <Route path="/reviews/:review_id" element={<SingleReview />} />
+          <Route path="/reviews/category_name/:category_name" element={<InitialHome />} />
+          <Route path="/reviews/review_id/:review_id" element={<SingleReview />} />
         </Routes>
       </div>
     </BrowserRouter>
