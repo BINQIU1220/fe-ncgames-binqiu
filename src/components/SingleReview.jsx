@@ -10,7 +10,6 @@ const SingleReview = () => {
   const [singleReview, setSingleReview] = useState([]);
   const review_id = reviewId[reviewId.length - 1];
   const navigate = useNavigate();
-  const thumbUp = 1, thumbDown = -1;
 
   useEffect(() => {
     getReviewsByIdy(review_id)
@@ -18,7 +17,7 @@ const SingleReview = () => {
         setSingleReview(res);
       })
       .catch((err) => {
-        console.log(err);
+        navigate("/404");
       });
   }, [review_id]);
 

@@ -4,7 +4,6 @@ import IsCatogory from "./IsCatogory";
 import { useNavigate, useParams } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
-
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const InitialHome = () => {
@@ -12,6 +11,7 @@ const InitialHome = () => {
   const [category, setCategory] = useState([]);
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(0);
   const navigate = useNavigate();
   let { category_name } = useParams();
 
@@ -19,15 +19,17 @@ const InitialHome = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
-    if (category_name && category.length > 1 && category_name !== "all") {
+    setError(0);
+    if (category_name && category.length === 0 && category_name !== "all") {
       getReviewsByCategory(category_name)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          setError(404);
+          setIsLoading(false);
+          navigate("/404");
         });
     } else if (category_name === "all") {
       getReviews()
@@ -58,9 +60,7 @@ const InitialHome = () => {
     });
   }, [isCategory]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <main>
@@ -99,7 +99,7 @@ const InitialHome = () => {
                 className="review-image"
               />
               <div className="review-title">{review.title}</div>
-             
+
               <button
                 id="more-info-btn"
                 key={review.review_id}
