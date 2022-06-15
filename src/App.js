@@ -18,5 +18,5 @@ function App() {
     </BrowserRouter>
   );
 }
-//test for GIT 2
+
 export default App;

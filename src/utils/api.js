@@ -29,3 +29,9 @@ export const getReviewsByIdy = (review_id) => {
     return res.data.review;
   });
 };
+
+export const patchVotesById = (inc_votes, review_id) => {
+  return gamesApi.patch(`reviews/${review_id}`, {inc_votes}).then((res) => {
+    return res;
+  });
+}

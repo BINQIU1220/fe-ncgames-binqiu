@@ -1,6 +1,8 @@
 import { getReviewsByIdy } from "../utils/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import PatchVotes from "./PatchVotes";
 import "../styling/SingleReview.css";
 
 const SingleReview = () => {
@@ -8,6 +10,7 @@ const SingleReview = () => {
   const [singleReview, setSingleReview] = useState([]);
   const review_id = reviewId[reviewId.length - 1];
   const navigate = useNavigate();
+  const thumbUp = 1, thumbDown = -1;
 
   useEffect(() => {
     getReviewsByIdy(review_id)
@@ -41,11 +44,11 @@ const SingleReview = () => {
                 alt="Review Image"
                 src={prop.review_img_url}
               ></img>
+              <PatchVotes previsouVotes={prop.votes} review_id={prop.review_id} />
               <div className="single-review-info">
                 <h3>{prop.title}</h3>
                 <p id="single-review-body">{prop.review_body}</p>
-                <p>Category: {prop.category}</p>
-                <p>Designer: {prop.designer}</p>
+                <p>Designer: {prop.designer} <span id="single-review-category">Category: {prop.category} </span></p>
               </div>
             </>
           );

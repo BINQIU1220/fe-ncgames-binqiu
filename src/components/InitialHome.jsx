@@ -4,7 +4,7 @@ import IsCatogory from "./IsCatogory";
 import { useNavigate, useParams } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
-import { GoThumbsup, GoThumbsdown } from "react-icons/go";
+
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const InitialHome = () => {
@@ -99,13 +99,7 @@ const InitialHome = () => {
                 className="review-image"
               />
               <div className="review-title">{review.title}</div>
-              <div className="review-votes-comments">
-                Votes: {review.votes} Comments: {review.votes}
-              </div>
-              <div id="vote-icons">
-                <GoThumbsup id="thumb-up" />
-                <GoThumbsdown id="thumb-down" />
-              </div>
+             
               <button
                 id="more-info-btn"
                 key={review.review_id}
