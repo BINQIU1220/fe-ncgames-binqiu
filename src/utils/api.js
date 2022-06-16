@@ -48,3 +48,8 @@ export const postComment = (body, review_id) => {
     body: body,
   });
 };
+
+export const deleteCommentsById = (comment_id) => {
+  console.log(comment_id);
+  return gamesApi.delete(`comments/${comment_id}`);
+};

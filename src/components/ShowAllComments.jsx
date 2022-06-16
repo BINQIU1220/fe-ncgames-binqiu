@@ -1,4 +1,4 @@
-import { getAllCommentsById } from "../utils/api";
+import { getAllCommentsById, deleteCommentsById } from "../utils/api";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdDeleteOutline } from "react-icons/md";
@@ -48,8 +48,14 @@ const ShowAllComments = () => {
           <section className="comments-container">
             <p className="single-comment" id={`comment-body-${index}`}>
               {prop.author.toUpperCase()}: {prop.body}
-            </p>{" "}
-            <button id={`delete-btn-${index}`}>
+            </p>
+            <button
+              id={`delete-btn-${index}`}
+              onClick={() => {
+                navigate(`/reviews/${prop.review_id}/comments/deleted`);
+                deleteCommentsById(prop.comment_id);
+              }}
+            >
               <MdDeleteOutline />
             </button>
           </section>

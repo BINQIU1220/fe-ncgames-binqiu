@@ -6,6 +6,7 @@ import SingleReview from "./components/SingleReview";
 import ErroHandle from "./components/ErroHandle";
 import ShowAllComments from "./components/ShowAllComments";
 import Success from "./components/Success";
+import Deleted from "./components/Deleted";
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Route
             path="/reviews/:review_id/comments/success"
             element={<Success />}
+          />
+          <Route
+            path="/reviews/:review_id/comments/deleted"
+            element={<Deleted />}
           />
           <Route path="/404" element={<ErroHandle error={404} />} />
           <Route
