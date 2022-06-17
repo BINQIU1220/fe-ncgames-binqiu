@@ -10,18 +10,31 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = () => {
+export const getReviews = (sort_by) => {
   let url = "/reviews/";
-  return gamesApi.get(url).then((res) => {
-    return res.data.reviews;
-  });
+  console.log(sort_by, "<<<<sort in api getallreviews");
+  return gamesApi
+    .get(url, { params: { sort_by } })
+    .then((res) => {
+      return res.data.reviews;
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
 };
 
-export const getReviewsByCategory = (category) => {
+export const getReviewsByCategory = (category, sort_by) => {
   let url = "/reviews/";
-  return gamesApi.get(url, { params: { category } }).then((res) => {
-    return res.data.reviews;
-  });
+  console.log(sort_by, "<<<<sort in api getreviewbycategory");
+  console.log(category, "<<<<category in api getreviewbycategory");
+  return gamesApi
+    .get(url, { params: { category, sort_by } })
+    .then((res) => {
+      return res.data.reviews;
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
 };
 
 export const getReviewsByIdy = (review_id) => {

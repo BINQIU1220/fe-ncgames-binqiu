@@ -19,6 +19,11 @@ function App() {
             path="/reviews/category_name/:category_name"
             element={<InitialHome />}
           />
+          <Route path="/reviews/sort_by/:sort_by" element={<InitialHome />} />
+          <Route
+            path="/reviews/:category_name/sort_by/:sort_by"
+            element={<InitialHome />}
+          />
           <Route
             path="/reviews/review_id/:review_id"
             element={<SingleReview />}
