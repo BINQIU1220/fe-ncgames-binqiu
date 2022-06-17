@@ -33,7 +33,7 @@ const ShowAllComments = () => {
   return (
     <>
       <button
-        id="back-to-review-btn"
+        className="back-to-review-btn"
         onClick={() => {
           navigate(`/reviews/review_id/${review_id}`);
         }}

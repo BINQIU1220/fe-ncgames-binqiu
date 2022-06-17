@@ -17,8 +17,8 @@
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
         5px 5px 0px 0px;
     position: absolute;
-    top: 115px;
-    right: 205px;
+    top: 7.5rem;
+    right: 12.5rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -29,7 +29,7 @@
     transform: translate3d(0, 2px, 0);
 }
 
-#back-to-review-btn {
+.back-to-review-btn {
     font-family: "Open Sans", sans-serif;
     font-size: 10px;
     letter-spacing: 2px;
@@ -42,14 +42,16 @@
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
         5px 5px 0px 0px;
     position: absolute;
-    top: 115px;
-    right: 205px;
+    top: 7.5rem;
+    right: 12.5rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
 }
 
-#ack-to-review-bt:hover {
+
+
+.back-to-review-bt:hover {
     box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
@@ -67,8 +69,8 @@
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
         5px 5px 0px 0px;
     position: absolute;
-    top: 115px;
-    right: 40px;
+    top: 7.5rem;
+    right: 1.8rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -96,7 +98,7 @@
     margin-top: 3.5rem
 }
 
-@media (min-width: 600px) {
+@media (min-width: 40em) {
     .single-review-image {
         width: 55%;
         margin-top: 3rem;
@@ -109,15 +111,23 @@
 
     #show-comments-btn {
         position: absolute;
-        top: 105px;
-        right: 950px;
+        top: 6.8rem;
+        right: 25rem;
         padding: 0.25em 0.75em;
     }
 
     .show-all-review-btn {
         position: absolute;
-        top: 105px;
-        right: 450px;
+        top: 6.8rem;
+        right: 10rem;
         padding: 0.25em 0.75em;
     }
+
+    .back-to-review-btn {
+        position: absolute;
+        top: 6.8rem;
+        right: 25rem;
+        padding: 0.25em 0.75em;
+    }
+
 }
