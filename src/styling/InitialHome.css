@@ -8,6 +8,10 @@
     height: auto;
 }
 
+.review-title {
+    padding: 1rem;
+}
+
 #initialhome-options {
     padding: 0.4rem;
 }

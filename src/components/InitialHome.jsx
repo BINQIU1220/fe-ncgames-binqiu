@@ -133,6 +133,10 @@ const InitialHome = () => {
                 alt="Review"
                 className="review-image"
               />
+              <div className="vote-count">Votes: {review.votes}</div>
+              <div className="comment-count">
+                Comments: {review.comment_count}
+              </div>
               <div className="review-title">{review.title}</div>
 
               <button
