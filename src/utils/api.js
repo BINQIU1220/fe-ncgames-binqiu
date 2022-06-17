@@ -31,7 +31,25 @@ export const getReviewsByIdy = (review_id) => {
 };
 
 export const patchVotesById = (inc_votes, review_id) => {
-  return gamesApi.patch(`reviews/${review_id}`, {inc_votes}).then((res) => {
+  return gamesApi.patch(`reviews/${review_id}`, { inc_votes }).then((res) => {
     return res;
   });
-}
+};
+
+export const getAllCommentsById = (review_id) => {
+  return gamesApi.get(`reviews/${review_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
+};
+
+export const postComment = (body, review_id) => {
+  return gamesApi.post(`reviews/${review_id}/comments`, {
+    username: "cooljmessy",
+    body: body,
+  });
+};
+
+export const deleteCommentsById = (comment_id) => {
+  console.log(comment_id);
+  return gamesApi.delete(`comments/${comment_id}`);
+};

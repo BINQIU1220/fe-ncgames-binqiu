@@ -9,7 +9,7 @@ const ErroHandle = ({ error }) => {
     return (
       <div className="error-404">
         <img
-          className="error-404"
+          className="error-404-img"
           src="https://i.ibb.co/h7zxBwy/404.png"
           alt="Error 404 image"
         ></img>
@@ -27,7 +27,7 @@ const ErroHandle = ({ error }) => {
     return (
       <div className="error-others">
         <img
-          className="othererrors"
+          className="error-others-img"
           src="https://i.pinimg.com/originals/b8/b8/f7/b8b8f787c454cf1ded2d9d870707ed96.png"
           alt="Error others image"
         ></img>
