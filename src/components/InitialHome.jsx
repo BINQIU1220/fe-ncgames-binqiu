@@ -10,6 +10,7 @@ const InitialHome = () => {
   const [reviews, setReviews] = useState([]);
   const [category, setCategory] = useState([]);
   const [sort, setSort] = useState("category");
+  const [order, setOrder] = useState("DESC");
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(0);
@@ -17,13 +18,12 @@ const InitialHome = () => {
   let { category_name } = useParams();
   let urlToShare = window.location.href;
 
-  console.log(sort, "<<<sort in state");
-  console.log(category_name, "<<<category_name in state");
   useEffect(() => {
     setIsLoading(true);
     setError(0);
-    if (category_name && category.length === 0 && category_name !== "all") {
-      getReviewsByCategory(category_name, sort)
+
+    if (!category_name && category.length === 0 && category_name !== "all") {
+      getReviewsByCategory(category_name, order, sort)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
@@ -34,7 +34,7 @@ const InitialHome = () => {
           navigate("/404");
         });
     } else if (category_name === "all") {
-      getReviews(sort)
+      getReviews(order, sort)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
@@ -43,7 +43,7 @@ const InitialHome = () => {
           console.log(err);
         });
     } else {
-      getReviewsByCategory(category_name, sort)
+      getReviewsByCategory(category_name, order, sort)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
@@ -52,7 +52,7 @@ const InitialHome = () => {
           console.log(err);
         });
     }
-  }, [isCategory, sort]);
+  }, [isCategory, sort, order]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -60,7 +60,7 @@ const InitialHome = () => {
     getCategories().then((res) => {
       setCategory(res);
     });
-  }, [isCategory, sort]);
+  }, [isCategory, sort, order]);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -79,7 +79,6 @@ const InitialHome = () => {
             name="sort-name"
             defaultValue=""
             onChange={(event) => {
-              console.log(event.target.value, "<<<<event in sort");
               setSort(event.target.value);
               if (category_name === undefined || category_name === "all") {
                 navigate(`/reviews/sort_by/${event.target.value}`);
@@ -95,10 +94,27 @@ const InitialHome = () => {
             <option value="comment_count">Comment Count</option>
           </select>
         </form>
+
         <div id="order-arrows">
-          <FaArrowUp id="order-asc" />
-          <FaArrowDown id="order-des" />
+          <button
+            id="order-asc"
+            onClick={() => {
+              setOrder("ASC");
+            }}
+          >
+            <FaArrowUp />
+          </button>
+
+          <button
+            id="order-desc"
+            onClick={() => {
+              setOrder("DESC");
+            }}
+          >
+            <FaArrowDown />
+          </button>
         </div>
+
         <div className="share-btn">
           <CopyToClipboard text={urlToShare}>
             <button>
