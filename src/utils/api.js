@@ -10,18 +10,30 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = () => {
+export const getReviews = (order, sort_by) => {
   let url = "/reviews/";
-  return gamesApi.get(url).then((res) => {
-    return res.data.reviews;
-  });
+
+  return gamesApi
+    .get(url, { params: { order, sort_by } })
+    .then((res) => {
+      return res.data.reviews;
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
 };
 
-export const getReviewsByCategory = (category) => {
+export const getReviewsByCategory = (category, order, sort_by) => {
   let url = "/reviews/";
-  return gamesApi.get(url, { params: { category } }).then((res) => {
-    return res.data.reviews;
-  });
+
+  return gamesApi
+    .get(url, { params: { category, order, sort_by } })
+    .then((res) => {
+      return res.data.reviews;
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
 };
 
 export const getReviewsByIdy = (review_id) => {
