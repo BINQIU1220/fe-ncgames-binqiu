@@ -21,34 +21,22 @@ const InitialHome = () => {
     setIsLoading(true);
 
     if (!category_name && category_name !== "all") {
-      getReviewsByCategory(category_name, order, sort)
-        .then((res) => {
-          setReviews(res);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          setIsLoading(false);
-        });
+      getReviewsByCategory(category_name, order, sort).then((res) => {
+        setReviews(res);
+        setIsLoading(false);
+      });
     } else if (category_name === "all") {
-      getReviews(order, sort)
-        .then((res) => {
-          setReviews(res);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          setIsLoading(false);
-        });
+      getReviews(order, sort).then((res) => {
+        setReviews(res);
+        setIsLoading(false);
+      });
     } else {
-      getReviewsByCategory(category_name, order, sort)
-        .then((res) => {
-          setReviews(res);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          setIsLoading(false);
-        });
+      getReviewsByCategory(category_name, order, sort).then((res) => {
+        setReviews(res);
+        setIsLoading(false);
+      });
     }
-  }, [category_name, sort, order]);
+  }, [category_name, sort, order, navigate]);
 
   useEffect(() => {
     setIsLoading(true);
