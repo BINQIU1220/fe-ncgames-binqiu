@@ -15,15 +15,15 @@ const IsCategory = ({ category, setCategory, setIsCategory }) => {
           navigate(`/reviews/category_name/${event.target.value}`);
         }}
       >
-        <option value="" key="ask-to-select">
+        <option key="ask" value="" className="ask-to-select">
           Select a category
         </option>
-        <option value="all" key="all">
+        <option key="all" value="all" className="all">
           Show all categories
         </option>
-        {category.map((elem) => {
+        {category.map((elem, index) => {
           return (
-            <option value={elem.slug} key={elem.slug}>
+            <option value={elem.slug} key={index}>
               {elem.slug}
             </option>
           );

@@ -20,7 +20,7 @@ const SingleReview = () => {
       .catch((err) => {
         navigate("/404");
       });
-  }, [review_id]);
+  }, [review_id, navigate]);
 
   const handleSubmission = (event) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const SingleReview = () => {
     <>
       {singleReview.map((prop) => {
         return (
-          <>
+          <div key={prop.review_id}>
             <section id="single-review-options">
               <button
                 id="show-comments-btn"
@@ -54,7 +54,7 @@ const SingleReview = () => {
 
             <img
               className="single-review-image"
-              alt="Review Image"
+              alt="Review"
               src={prop.review_img_url}
             ></img>
 
@@ -88,7 +88,7 @@ const SingleReview = () => {
                 </span>
               </p>
             </div>
-          </>
+          </div>
         );
       })}
     </>

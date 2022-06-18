@@ -32,7 +32,7 @@ export const getReviewsByCategory = (category, order, sort_by) => {
       return res.data.reviews;
     })
     .catch((err) => {
-      console.dir(err);
+      console.log(err, "<<<<err in api");
     });
 };
 

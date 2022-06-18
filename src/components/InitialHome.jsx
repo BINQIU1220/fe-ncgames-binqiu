@@ -13,25 +13,21 @@ const InitialHome = () => {
   const [order, setOrder] = useState("DESC");
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(0);
   const navigate = useNavigate();
   let { category_name } = useParams();
   let urlToShare = window.location.href;
 
   useEffect(() => {
     setIsLoading(true);
-    setError(0);
 
-    if (!category_name && category.length === 0 && category_name !== "all") {
+    if (!category_name && category_name !== "all") {
       getReviewsByCategory(category_name, order, sort)
         .then((res) => {
           setReviews(res);
           setIsLoading(false);
         })
         .catch((err) => {
-          setError(404);
           setIsLoading(false);
-          navigate("/404");
         });
     } else if (category_name === "all") {
       getReviews(order, sort)
@@ -40,7 +36,7 @@ const InitialHome = () => {
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          setIsLoading(false);
         });
     } else {
       getReviewsByCategory(category_name, order, sort)
@@ -49,10 +45,10 @@ const InitialHome = () => {
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          setIsLoading(false);
         });
     }
-  }, [isCategory, sort, order]);
+  }, [category_name, sort, order]);
 
   useEffect(() => {
     setIsLoading(true);
