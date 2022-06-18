@@ -13,7 +13,6 @@ const PatchVotes = ({ previsouVotes, review_id }) => {
     setVotes((currentVotes) => currentVotes + 1);
     patchVotesById(1, review_id).catch((err) => {
       setVotes((currentVotes) => currentVotes - 1);
-      setErr("Something went wrong, please try again.");
       navigate("/othererrors");
     });
   };
@@ -23,7 +22,7 @@ const PatchVotes = ({ previsouVotes, review_id }) => {
     setVotes((currentVotes) => currentVotes - 1);
     patchVotesById(-1, review_id).catch(() => {
       setVotes((currentVotes) => currentVotes + 1);
-      setErr("Something went wrong, please try again.");
+
       navigate("/othererrors");
     });
   };
