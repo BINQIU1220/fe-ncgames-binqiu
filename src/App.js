@@ -40,13 +40,7 @@ function App() {
             path="/reviews/:review_id/comments/deleted"
             element={<Deleted />}
           />
-          <Route path="/404" element={<ErroHandle error={404} />} />
-          <Route
-            path="/othererrors"
-            element={
-              <ErroHandle error={"Something went wrong, please try again."} />
-            }
-          />
+          <Route path="*" element={<ErroHandle />} />
         </Routes>
       </div>
     </BrowserRouter>

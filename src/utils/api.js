@@ -18,8 +18,8 @@ export const getReviews = (order, sort_by) => {
     .then((res) => {
       return res.data.reviews;
     })
-    .catch((err) => {
-      console.dir(err);
+    .catch(() => {
+      window.location = "/opps";
     });
 };
 
@@ -31,15 +31,20 @@ export const getReviewsByCategory = (category, order, sort_by) => {
     .then((res) => {
       return res.data.reviews;
     })
-    .catch((err) => {
-      window.location = "/404";
+    .catch(() => {
+      window.location = "/oops";
     });
 };
 
 export const getReviewsByIdy = (review_id) => {
-  return gamesApi.get(`reviews/${review_id}`).then((res) => {
-    return res.data.review;
-  });
+  return gamesApi
+    .get(`reviews/${review_id}`)
+    .then((res) => {
+      return res.data.review;
+    })
+    .catch(() => {
+      window.location = "/oops";
+    });
 };
 
 export const patchVotesById = (inc_votes, review_id) => {
@@ -49,9 +54,14 @@ export const patchVotesById = (inc_votes, review_id) => {
 };
 
 export const getAllCommentsById = (review_id) => {
-  return gamesApi.get(`reviews/${review_id}/comments`).then((res) => {
-    return res.data.comments;
-  });
+  return gamesApi
+    .get(`reviews/${review_id}/comments`)
+    .then((res) => {
+      return res.data.comments;
+    })
+    .catch(() => {
+      window.location = "/oops";
+    });
 };
 
 export const postComment = (body, review_id) => {

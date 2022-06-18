@@ -10,19 +10,9 @@ const ShowAllComments = () => {
   let { review_id } = useParams();
 
   useEffect(() => {
-    getAllCommentsById(review_id)
-      .then((res) => {
-        if (res === undefined) {
-          navigate("/404");
-        } else setComments(res);
-      })
-      .catch((err) => {
-        if (err.response.status === 400) {
-          navigate("/othererrors");
-        } else if (err.response.status === 404) {
-          navigate("/404");
-        }
-      });
+    getAllCommentsById(review_id).then((res) => {
+      setComments(res);
+    });
   }, [review_id, navigate]);
 
   return (
