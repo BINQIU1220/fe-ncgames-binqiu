@@ -6,13 +6,11 @@ import { GoThumbsup, GoThumbsdown } from "react-icons/go";
 const PatchVotes = ({ previsouVotes, review_id }) => {
   const [votes, setVotes] = useState(previsouVotes);
   const [isDisbled, setIsDisabled] = useState(false);
-  const [err, setErr] = useState(null);
   const navigate = useNavigate();
 
   const thumbUp = () => {
     setIsDisabled(true);
     setVotes((currentVotes) => currentVotes + 1);
-    setErr(null);
     patchVotesById(1, review_id).catch((err) => {
       setVotes((currentVotes) => currentVotes - 1);
       setErr("Something went wrong, please try again.");
@@ -23,7 +21,6 @@ const PatchVotes = ({ previsouVotes, review_id }) => {
   const thumbDown = () => {
     setIsDisabled(true);
     setVotes((currentVotes) => currentVotes - 1);
-    setErr(null);
     patchVotesById(-1, review_id).catch(() => {
       setVotes((currentVotes) => currentVotes + 1);
       setErr("Something went wrong, please try again.");
