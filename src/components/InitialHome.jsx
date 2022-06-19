@@ -36,7 +36,7 @@ const InitialHome = () => {
         setIsLoading(false);
       });
     }
-  }, [category_name, sort_by, order]);
+  }, [category_name, sort_by, order, navigate]);
 
   useEffect(() => {
     setIsLoading(true);

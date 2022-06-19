@@ -13,13 +13,9 @@ const SingleReview = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getReviewsByIdy(review_id)
-      .then((res) => {
-        setSingleReview(res);
-      })
-      .catch((err) => {
-        navigate("/404");
-      });
+    getReviewsByIdy(review_id).then((res) => {
+      setSingleReview(res);
+    });
   }, [review_id, navigate]);
 
   const handleSubmission = (event) => {

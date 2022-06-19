@@ -52,7 +52,7 @@ function App() {
             path="/reviews/:review_id/comments/deleted"
             element={<Deleted />}
           />
-          <Route path="*" element={<ErroHandle />} />
+          <Route path="/oops" element={<ErroHandle />} />
         </Routes>
       </div>
     </BrowserRouter>
