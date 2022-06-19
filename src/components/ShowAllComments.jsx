@@ -13,7 +13,7 @@ const ShowAllComments = () => {
     getAllCommentsById(review_id).then((res) => {
       setComments(res);
     });
-  }, [review_id, navigate]);
+  }, [review_id]);
 
   return (
     <>

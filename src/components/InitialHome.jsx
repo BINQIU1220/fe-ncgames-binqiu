@@ -9,34 +9,34 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 const InitialHome = () => {
   const [reviews, setReviews] = useState([]);
   const [category, setCategory] = useState([]);
-  const [sort, setSort] = useState("category");
-  const [order, setOrder] = useState("DESC");
+  const [sortBy, setSortBy] = useState("category");
+  const [orderBy, setOrderBy] = useState("DESC");
   const [isCategory, setIsCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  let { category_name } = useParams();
+  let { category_name, sort_by, order } = useParams();
   let urlToShare = window.location.href;
 
   useEffect(() => {
     setIsLoading(true);
 
     if (!category_name && category_name !== "all") {
-      getReviewsByCategory(category_name, order, sort).then((res) => {
+      getReviewsByCategory(category_name, order, sort_by).then((res) => {
         setReviews(res);
         setIsLoading(false);
       });
     } else if (category_name === "all") {
-      getReviews(order, sort).then((res) => {
+      getReviews(order, sort_by).then((res) => {
         setReviews(res);
         setIsLoading(false);
       });
     } else {
-      getReviewsByCategory(category_name, order, sort).then((res) => {
+      getReviewsByCategory(category_name, order, sort_by).then((res) => {
         setReviews(res);
         setIsLoading(false);
       });
     }
-  }, [category_name, sort, order, navigate]);
+  }, [category_name, sort_by, order]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -44,7 +44,7 @@ const InitialHome = () => {
     getCategories().then((res) => {
       setCategory(res);
     });
-  }, [isCategory, sort, order]);
+  }, [isCategory, sortBy, orderBy]);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -63,7 +63,7 @@ const InitialHome = () => {
             name="sort-name"
             defaultValue=""
             onChange={(event) => {
-              setSort(event.target.value);
+              setSortBy(event.target.value);
               if (category_name === undefined || category_name === "all") {
                 navigate(`/reviews/sort_by/${event.target.value}`);
               } else {
@@ -83,7 +83,7 @@ const InitialHome = () => {
           <button
             id="order-asc"
             onClick={() => {
-              setOrder("ASC");
+              setOrderBy("ASC");
             }}
           >
             <FaArrowUp />
@@ -92,7 +92,7 @@ const InitialHome = () => {
           <button
             id="order-desc"
             onClick={() => {
-              setOrder("DESC");
+              setOrderBy("DESC");
             }}
           >
             <FaArrowDown />
