@@ -25,7 +25,7 @@ const InitialHome = () => {
         setReviews(res);
         setIsLoading(false);
       });
-    } else if (category_name === "all") {
+    } else if (category_name === "all" || category_name === undefined) {
       getReviews(order, sort_by).then((res) => {
         setReviews(res);
         setIsLoading(false);
@@ -65,7 +65,7 @@ const InitialHome = () => {
             onChange={(event) => {
               setSortBy(event.target.value);
               if (category_name === undefined || category_name === "all") {
-                navigate(`/reviews/sort_by/${event.target.value}`);
+                navigate(`/reviews/all/sort_by/${event.target.value}`);
               } else {
                 navigate(
                   `/reviews/${category_name}/sort_by/${event.target.value}`
@@ -84,6 +84,13 @@ const InitialHome = () => {
             id="order-asc"
             onClick={() => {
               setOrderBy("ASC");
+              if (category_name === undefined || category_name === "all") {
+                navigate(`/reviews/all/sort_by/${sortBy}/order/ASC`);
+              } else {
+                navigate(
+                  `/reviews/${category_name}/sort_by/${sortBy}/order/ASC`
+                );
+              }
             }}
           >
             <FaArrowUp />
@@ -93,6 +100,13 @@ const InitialHome = () => {
             id="order-desc"
             onClick={() => {
               setOrderBy("DESC");
+              if (category_name === undefined || category_name === "all") {
+                navigate(`/reviews/all/sort_by/${sortBy}/order/DESC`);
+              } else {
+                navigate(
+                  `/reviews/${category_name}/sort_by/${sortBy}/order/DESC`
+                );
+              }
             }}
           >
             <FaArrowDown />
