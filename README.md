@@ -2,7 +2,7 @@
 
 See how it works live here:
 
-https://62ae58bd446d525561d29b2b--endearing-kangaroo-2bb2b6.netlify.app
+https://endearing-kangaroo-2bb2b6.netlify.app/
 
 ## Introduction
 
