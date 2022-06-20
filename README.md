@@ -4,10 +4,12 @@ See how it works live here:
 
 https://endearing-kangaroo-2bb2b6.netlify.app/
 
-## Introduction
+## About
 
-Welcome! This is a frontend project of the Northcoders Bootcamp which utilises the backend api I build before, which you can find in my repo _BE-NC-Game-Workplace_. Users can filter reviews by category and sort/order them or combined these 2 droplists together for more precise result. The share icon simply copy the current URL to the clipboard.
+Welcome! This is a frontend project which utilises the backend api I build before, which you can find in my repo _BE-NC-Game-Workplace_. 
+
+Users can filter reviews by category and sort/order them or combined these 2 droplists together for more precise result. The share icon works as to copy the current URL to the clipboard.
 
 For dev purposes, a hardcoded user is provided to allow vote and comment on each review. User _Banana_ on the top right side is just for fun :)
 
-BS: for some reason, the app's error handling page is not working on Netlify but locally all is fine. Will have a look at it :(
+PS: UI is still very rudimemntary as I am going to learn CSS skill. Have fun!
