@@ -72,6 +72,5 @@ export const postComment = (body, review_id) => {
 };
 
 export const deleteCommentsById = (comment_id) => {
-  console.log(comment_id);
   return gamesApi.delete(`comments/${comment_id}`);
 };

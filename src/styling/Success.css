@@ -1,7 +1,12 @@
 .success-img {
     width: 100%;
     height: auto;
+}
 
+.back-to-review-btn-successpage {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
 }
 
 

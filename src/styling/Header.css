@@ -1,49 +1,9 @@
 .header {
-    background-color: aqua;
+
     text-align: left;
 }
 
 #header-welcome {
-    overflow-wrap: break-word;
-    padding-right: 1.8rem;
-}
-
-#header-user-name {
-    font-size: 16px;
-    font-weight: 600;
-    position: absolute;
-    top: 60px;
-    right: 70px;
-}
-
-#header-user-avatar {
-    display: flex;
-    border: solid rgb(0, 91, 0);
-    border-radius: 50%;
-    max-width: 15%;
-    height: auto;
-    position: absolute;
-    top: 40px;
-    right: 5px;
-}
-
-@media (min-width: 600px) {
-    .header {
-        border: dotted 5px;
-    }
-
-    #header-user-name {
-        font-size: 20px;
-        position: absolute;
-        top: 35px;
-        right: 90px;
-    }
-
-    #header-user-avatar {
-        max-width: 5%;
-        height: auto;
-        position: absolute;
-        top: 5px;
-        right: 10px;
-    }
+    text-align: center;
+    margin-bottom: 0.8rem;
 }

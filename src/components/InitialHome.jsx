@@ -4,7 +4,10 @@ import IsCatogory from "./IsCatogory";
 import { useNavigate, useParams } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
 import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
+import { FiThumbsUp } from "react-icons/fi";
+import { BiCommentDetail } from "react-icons/bi";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { dateFormater } from "../utils/dateFormater";
 
 const InitialHome = () => {
   const [reviews, setReviews] = useState([]);
@@ -73,7 +76,7 @@ const InitialHome = () => {
               }
             }}
           >
-            <option value="">Order By</option>
+            <option value="">Sort by</option>
             <option value="votes">Votes</option>
             <option value="comment_count">Comment Count</option>
           </select>
@@ -115,7 +118,7 @@ const InitialHome = () => {
 
         <div className="share-btn">
           <CopyToClipboard text={urlToShare}>
-            <button>
+            <button >
               <FaShareAlt />
             </button>
           </CopyToClipboard>
@@ -131,11 +134,23 @@ const InitialHome = () => {
                 alt="Review"
                 className="review-image"
               />
-              <div className="vote-count">Votes: {review.votes}</div>
-              <div className="comment-count">
-                Comments: {review.comment_count}
-              </div>
+
               <div className="review-title">{review.title}</div>
+
+              <div className="vote-comment">
+                <FiThumbsUp></FiThumbsUp>
+                {review.votes}
+                <BiCommentDetail></BiCommentDetail>
+                {review.comment_count}
+              </div>
+
+              <div className="created-at">
+                {`${dateFormater(review.created_at).date} at ${
+                  dateFormater(review.created_at).time
+                } by ${review.owner}`}
+              </div>
+
+              <div className="category-homepage">{(review.category).toUpperCase()}</div>
 
               <button
                 id="more-info-btn"
