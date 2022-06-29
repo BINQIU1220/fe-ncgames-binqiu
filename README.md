@@ -2,10 +2,14 @@
 
 See how it works live here:
 
-https://62ae58bd446d525561d29b2b--endearing-kangaroo-2bb2b6.netlify.app
+https://endearing-kangaroo-2bb2b6.netlify.app/
 
-## Introduction
+## About
 
-Welcome! This is a frontend project of the Northcoders Bootcamp which utilises the backend api I build before, which you can find in my repo _BE-NC-Game-Workplace_. Users can filter reviews by category and sort/order them or combined these 2 droplists together for more precise result. The share icon simply copy the current URL to the clipboard.
+Welcome! This is a frontend project which was build with React framework and Axios for the back end API queries. It combined the backend api I build before, which you can find for info here in my repo _BE-NC-Game-Workplace_.
 
-For dev purposes, a hardcoded superuser is provided to allow vote and comment on each review. User _Banana_ on the top right side is just for fun :)
+Users can filter games by category and sort/order them or combined these 2 droplists together for more precise result. The share icon works as to copy the current URL to the clipboard.
+
+For devand test purposes, a hardcoded superuser is provided to allow vote and add/delete comment on all reviews.
+
+PS: UI is still very rudimemntary as I am going to learn CSS skill. Have fun!
