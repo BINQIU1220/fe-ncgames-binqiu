@@ -54,35 +54,42 @@ const SingleReview = () => {
               src={prop.review_img_url}
             ></img>
 
-            <form className="add-comment-form" onSubmit={handleSubmission}>
-              <input
-                type="text"
-                name="comment-input"
-                placeholder="Enter your comment here!"
-                required
-                onChange={(event) => {
-                  setNewComment(event.target.value);
-                }}
-              ></input>
-              <button type="submit">Go!</button>
-            </form>
+            <div className="singlereview-cardinfo">
+              <form className="add-comment-form" onSubmit={handleSubmission}>
+                <input
+                  className="add-comment-input"
+                  type="text"
+                  name="comment-input"
+                  placeholder="Add your comment!"
+                  required
+                  onChange={(event) => {
+                    setNewComment(event.target.value);
+                  }}
+                ></input>
+                <button className="submit-comment-btn" type="submit">
+                  Go!
+                </button>
+              </form>
 
-            <PatchVotes previsouVotes={prop.votes} review_id={prop.review_id} />
-
-            <div className="single-review-info">
-              <h3>{prop.title}</h3>
-              <p id="single-review-body">
-                {prop.review_body.slice(0, 249)}
-                <Expandible>
-                  {prop.review_body.slice(249, prop.review_body.length - 1)}
-                </Expandible>
-              </p>
-              <p>
-                Designer: {prop.designer}{" "}
-                <span id="single-review-category">
-                  Category: {prop.category}{" "}
-                </span>
-              </p>
+              <div className="single-review-info">
+                <h3>{prop.title}</h3>
+                <p id="single-review-body">
+                  {prop.review_body.slice(0, 125)}
+                  <Expandible>
+                    {prop.review_body.slice(125, prop.review_body.length - 1)}
+                  </Expandible>
+                </p>
+                <p>
+                  Designer: {prop.designer}{" "}
+                  <span id="single-review-category">
+                    Category: {prop.category}{" "}
+                  </span>
+                </p>
+                <PatchVotes
+                  previsouVotes={prop.votes}
+                  review_id={prop.review_id}
+                />
+              </div>
             </div>
           </div>
         );

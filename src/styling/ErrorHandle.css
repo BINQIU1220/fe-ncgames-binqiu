@@ -4,7 +4,9 @@
 }
 
 .back-home-btn-errorpage {
-  margin-top: 0.5rem;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .error-others-img {

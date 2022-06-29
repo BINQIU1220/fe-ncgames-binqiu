@@ -16,10 +16,10 @@ const IsCategory = ({ category, setCategory, setIsCategory }) => {
         }}
       >
         <option key="ask" value="" className="ask-to-select">
-          Select a category
+          Category
         </option>
         <option key="all" value="all" className="all">
-          Show all categories
+          all categories
         </option>
         {category.map((elem, index) => {
           return (

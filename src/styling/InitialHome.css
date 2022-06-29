@@ -1,87 +1,62 @@
 .review-card {
-    border: solid 1px blue;
-    padding: 1rem;
+    border: solid 3px rgb(8, 95, 95);
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.review-card:hover {
+    background-color: rgba(11, 37, 46, 0.968);
+    transition-duration: 0.2s;
+}
+
+.vote-comment {
+    display: inline;
 }
 
 .review-image {
-    width: 75%;
+    width: 100%;
     height: auto;
+
 }
 
 .review-title {
-    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
 }
 
 #initialhome-options {
-    padding: 0.4rem;
+    display: flex;
 }
 
 #slect-category {
-    position: absolute;
-    top: 110px;
-    right: 239px;
+    margin-left: 0.4rem;
+    margin-right: 0.1rem;
+    padding: 0.2rem;
+}
+
+.created-at {
+    margin-top: 0.4rem;
+}
+
+.category-homepage {
+    color: rgb(98, 196, 164);
+    font-weight: 600;
+    margin-top: 0.4rem;
 }
 
 #select-sort {
-    position: absolute;
-    top: 110px;
-    right: 120px;
+    margin-right: 0.1em;
+    padding: 0.2rem;
 }
-
-#select-sort {
-    position: absolute;
-    top: 110px;
-    right: 150px;
-}
-
-#order-arrows {
-    position: absolute;
-    top: 112px;
-    right: 80px;
-}
-
-.share-btn {
-    position: absolute;
-    top: 110px;
-    right: 20px;
-}
-
 
 #more-info-btn {
-    align-self: center;
-    background-color: #fff;
-    background-image: none;
-    background-position: 0 90%;
-    background-repeat: repeat no-repeat;
-    background-size: 4px 3px;
-    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-    border-style: solid;
-    border-width: 2px;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-    box-sizing: border-box;
-    color: #41403e;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Neucha, sans-serif;
-    font-size: 1rem;
-    line-height: 23px;
-    outline: none;
-    padding: 0.45rem;
-    margin-top: 0.3rem;
-    text-decoration: none;
-    transition: all 235ms ease-in-out;
-    border-bottom-left-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-#more-info-btn:hover {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
+    padding: 0.5em 1em;
+    margin-left: 80%;
 }
 
 #more-info-btn:focus {

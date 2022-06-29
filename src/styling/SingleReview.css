@@ -1,102 +1,82 @@
 .single-review-image {
-    width: 80%;
+    width: 95%;
     height: auto;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+#single-review-options {
+    margin-left: 1.4rem;
+}
+
+.singlereview-cardinfo {
+    margin-left: 0.7rem;
+    margin-top: 0.3rem;
 }
 
 #show-comments-btn {
-    font-family: "Open Sans", sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #000;
-    cursor: pointer;
-    border: 3px solid;
-    padding: 0.25em 0.5em;
-    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-        5px 5px 0px 0px;
-    position: absolute;
-    top: 7.5rem;
-    right: 12.5rem;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    margin-right: 1rem;
 }
 
-#show-comments-btn:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
+.all-comments-upper-options {
+    margin-left: 1.4rem;
+    margin-bottom: 1rem;
 }
 
 .back-to-review-btn {
-    font-family: "Open Sans", sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #000;
-    cursor: pointer;
-    border: 3px solid;
-    padding: 0.25em 0.5em;
-    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-        5px 5px 0px 0px;
-    position: absolute;
-    top: 7.5rem;
-    right: 12.5rem;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    margin-right: 1.5rem;
 }
 
-
-
-.back-to-review-bt:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
+.submit-comment-btn {
+    border-radius: 50px;
+    padding: 0.5rem;
+    font-size: 0.75rem;
 }
 
-.show-all-review-btn {
-    font-family: "Open Sans", sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #000;
-    cursor: pointer;
-    border: 3px solid;
-    padding: 0.25em 0.5em;
-    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-        5px 5px 0px 0px;
-    position: absolute;
-    top: 7.5rem;
-    right: 1.8rem;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+.add-comment-input {
+    border: 3px solid #fff;
+    border-radius: 26px;
+    box-sizing: border-box;
+    padding: 5px 15px 7px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
 }
 
-.show-all-review-btn:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-}
 
 #thumb-up {
-    margin-right: 1rem;
-    margin-top: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 #single-review-category {
     margin-left: 1rem;
 }
 
-.single-comment {
-    text-align: left;
+.comments-container {
+    margin-bottom: 0.6rem;
+    border: solid 3px;
+    padding: 0 0.5rem 0.3rem 0.3rem;
 }
 
-#comment-body-0 {
-    margin-top: 3.5rem
+.single-comment-content {
+    display: flex;
+
 }
+
+.single-comment-body {
+    word-wrap: break-word;
+
+}
+
+.delete-comment-btn {
+    margin-left: .2rem;
+}
+
+.single-comment-otherinfo {
+    margin-top: 0.5rem;
+}
+
 
 @media (min-width: 40em) {
     .single-review-image {
