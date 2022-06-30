@@ -6,7 +6,8 @@
 }
 
 #single-review-options {
-    margin-left: 1.4rem;
+    margin: 0 auto;
+    max-width: 335px;
 }
 
 .singlereview-cardinfo {
@@ -19,8 +20,8 @@
 }
 
 .all-comments-upper-options {
-    margin-left: 1.4rem;
-    margin-bottom: 1rem;
+    margin: 0.7rem auto;
+    max-width: 320px;
 }
 
 .back-to-review-btn {
