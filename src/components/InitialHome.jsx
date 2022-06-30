@@ -114,11 +114,9 @@ const InitialHome = () => {
           >
             <FaArrowDown />
           </button>
-        </div>
 
-        <div className="share-btn">
           <CopyToClipboard text={urlToShare}>
-            <button >
+            <button>
               <FaShareAlt />
             </button>
           </CopyToClipboard>
@@ -150,7 +148,9 @@ const InitialHome = () => {
                 } by ${review.owner}`}
               </div>
 
-              <div className="category-homepage">{(review.category).toUpperCase()}</div>
+              <div className="category-homepage">
+                {review.category.toUpperCase()}
+              </div>
 
               <button
                 id="more-info-btn"

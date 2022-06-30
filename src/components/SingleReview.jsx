@@ -31,12 +31,12 @@ const SingleReview = () => {
           <div key={prop.review_id}>
             <section id="single-review-options">
               <button
-                id="show-comments-btn"
+                className="show-comments-btn"
                 onClick={() => {
                   navigate(`/reviews/comments/${prop.review_id}`);
                 }}
               >
-                Show ALL Comments
+                Show Comments
               </button>
               <button
                 className="show-all-review-btn"
@@ -44,51 +44,52 @@ const SingleReview = () => {
                   navigate(`/`);
                 }}
               >
-                Show All Reviews
+                All Reviews
               </button>
             </section>
+            <div className="single-review-card">
+              <img
+                className="single-review-image"
+                alt="Review"
+                src={prop.review_img_url}
+              ></img>
 
-            <img
-              className="single-review-image"
-              alt="Review"
-              src={prop.review_img_url}
-            ></img>
+              <div className="singlereview-cardinfo">
+                <form className="add-comment-form" onSubmit={handleSubmission}>
+                  <input
+                    className="add-comment-input"
+                    type="text"
+                    name="comment-input"
+                    placeholder="Add your comment!"
+                    required
+                    onChange={(event) => {
+                      setNewComment(event.target.value);
+                    }}
+                  ></input>
+                  <button className="submit-comment-btn" type="submit">
+                    Go!
+                  </button>
+                </form>
 
-            <div className="singlereview-cardinfo">
-              <form className="add-comment-form" onSubmit={handleSubmission}>
-                <input
-                  className="add-comment-input"
-                  type="text"
-                  name="comment-input"
-                  placeholder="Add your comment!"
-                  required
-                  onChange={(event) => {
-                    setNewComment(event.target.value);
-                  }}
-                ></input>
-                <button className="submit-comment-btn" type="submit">
-                  Go!
-                </button>
-              </form>
-
-              <div className="single-review-info">
-                <h3>{prop.title}</h3>
-                <p id="single-review-body">
-                  {prop.review_body.slice(0, 125)}
-                  <Expandible>
-                    {prop.review_body.slice(125, prop.review_body.length - 1)}
-                  </Expandible>
-                </p>
-                <p>
-                  Designer: {prop.designer}{" "}
-                  <span id="single-review-category">
-                    Category: {prop.category}{" "}
-                  </span>
-                </p>
-                <PatchVotes
-                  previsouVotes={prop.votes}
-                  review_id={prop.review_id}
-                />
+                <div className="single-review-info">
+                  <h3>{prop.title}</h3>
+                  <p id="single-review-body">
+                    {prop.review_body.slice(0, 125)}
+                    <Expandible>
+                      {prop.review_body.slice(125, prop.review_body.length - 1)}
+                    </Expandible>
+                  </p>
+                  <p>
+                    Designer: {prop.designer}{" "}
+                    <span id="single-review-category">
+                      Category: {prop.category}{" "}
+                    </span>
+                  </p>
+                  <PatchVotes
+                    previsouVotes={prop.votes}
+                    review_id={prop.review_id}
+                  />
+                </div>
               </div>
             </div>
           </div>

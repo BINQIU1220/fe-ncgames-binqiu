@@ -6,8 +6,8 @@
 }
 
 #single-review-options {
-    margin: 0 auto;
-    max-width: 335px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .singlereview-cardinfo {
@@ -15,17 +15,14 @@
     margin-top: 0.3rem;
 }
 
-#show-comments-btn {
-    margin-right: 1rem;
-}
-
 .all-comments-upper-options {
     margin: 0.7rem auto;
-    max-width: 320px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.back-to-review-btn {
-    margin-right: 1.5rem;
+.add-comment-form {
+    display: flex;
 }
 
 .submit-comment-btn {
@@ -37,14 +34,12 @@
 .add-comment-input {
     border: 3px solid #fff;
     border-radius: 26px;
-    box-sizing: border-box;
     padding: 5px 15px 7px;
     font-size: 14px;
     font-weight: 600;
-    z-index: 2;
-    position: relative;
+    width: 50%;
+    margin-top: 0;
 }
-
 
 #thumb-up {
     margin-right: 0.5rem;
@@ -55,23 +50,18 @@
 }
 
 .comments-container {
+    width: 93%;
     margin-bottom: 0.6rem;
     border: solid 3px;
     padding: 0 0.5rem 0.3rem 0.3rem;
 }
 
-.single-comment-content {
-    display: flex;
-
-}
-
 .single-comment-body {
     word-wrap: break-word;
-
 }
 
 .delete-comment-btn {
-    margin-left: .2rem;
+    margin-left: 0.2rem;
 }
 
 .single-comment-otherinfo {
@@ -79,36 +69,33 @@
 }
 
 
-@media (min-width: 40em) {
+@media (min-width: 600px) {
     .single-review-image {
+        display: flex;
         width: 55%;
-        margin-top: 3rem;
+        margin: 1rem auto;
     }
 
-    #single-review-body {
-        width: 75vw;
-        margin-left: 12rem;
-    }
+    #single-review-options {
+        display: flex;
+        justify-content: center;
 
-    #show-comments-btn {
-        position: absolute;
-        top: 6.8rem;
-        right: 25rem;
-        padding: 0.25em 0.75em;
     }
 
     .show-all-review-btn {
-        position: absolute;
-        top: 6.8rem;
-        right: 10rem;
-        padding: 0.25em 0.75em;
+        margin-left: 7rem;
     }
 
-    .back-to-review-btn {
-        position: absolute;
-        top: 6.8rem;
-        right: 25rem;
-        padding: 0.25em 0.75em;
+    .single-review-card {
+        display: flex;
     }
 
+    .singlereview-cardinfo {
+        margin-top: 1.4rem;
+    }
+
+    .comments-container {
+        width: 98.5%;
+
+    }
 }

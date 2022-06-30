@@ -1,11 +1,7 @@
 import "../styling/Header.css";
 
 const Header = () => {
-  return (
-    <div className="header">
-      <h1 id="header-welcome">NC-Games</h1>
-    </div>
-  );
+  return <h1 className="header-welcome">NC-Games</h1>;
 };
 
 export default Header;
