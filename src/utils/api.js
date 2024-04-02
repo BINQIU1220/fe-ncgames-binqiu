@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gamesApi = axios.create({
-  baseURL: "https://be-nc-game-workplace.onrender.com/api",
+  baseURL: "https://be-nc-games-workplace.onrender.com/api",
 });
 
 export const getCategories = () => {
