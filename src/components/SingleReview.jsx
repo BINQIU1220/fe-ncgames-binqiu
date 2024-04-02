@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Expandible from "./Expandible";
 import PatchVotes from "./PatchVotes";
+import ShowAllComments from "./ShowAllComments";
 import "../styling/SingleReview.css";
 
 const SingleReview = () => {
   const reviewId = window.location.href.split("/");
   const [singleReview, setSingleReview] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [visible, setVisible] = useState(false);
   const review_id = reviewId[reviewId.length - 1];
   const navigate = useNavigate();
 
@@ -24,8 +26,12 @@ const SingleReview = () => {
     postComment(newComment, review_id);
   };
 
+  const handleComments = () => {
+    visible === false ? setVisible(true) : setVisible(false);
+  };
+
   return (
-    <>
+    <div>
       {singleReview.map((prop) => {
         return (
           <div key={prop.review_id}>
@@ -33,10 +39,10 @@ const SingleReview = () => {
               <button
                 className="show-comments-btn"
                 onClick={() => {
-                  navigate(`/reviews/comments/${prop.review_id}`);
+                  handleComments();
                 }}
               >
-                Show Comments
+                {visible === false ? "show comments" : "hide comments"}
               </button>
               <button
                 className="show-all-review-btn"
@@ -89,13 +95,15 @@ const SingleReview = () => {
                     previsouVotes={prop.votes}
                     review_id={prop.review_id}
                   />
+                  <p></p>
+                  <ShowAllComments visible={visible} id={prop.review_id} />
                 </div>
               </div>
             </div>
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

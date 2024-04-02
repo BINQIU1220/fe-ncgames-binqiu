@@ -5,9 +5,14 @@ const gamesApi = axios.create({
 });
 
 export const getCategories = () => {
-  return gamesApi.get("/categories").then((res) => {
-    return res.data.categories;
-  });
+  return gamesApi
+    .get("/categories")
+    .then((res) => {
+      return res.data.categories;
+    })
+    .catch((err) => {
+      window.location = "/opps";
+    });
 };
 
 export const getReviews = (order, sort_by) => {
@@ -18,7 +23,7 @@ export const getReviews = (order, sort_by) => {
     .then((res) => {
       return res.data.reviews;
     })
-    .catch(() => {
+    .catch((err) => {
       window.location = "/opps";
     });
 };
@@ -31,7 +36,7 @@ export const getReviewsByCategory = (category, order, sort_by) => {
     .then((res) => {
       return res.data.reviews;
     })
-    .catch(() => {
+    .catch((err) => {
       window.location = "/oops";
     });
 };

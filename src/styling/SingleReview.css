@@ -1,6 +1,6 @@
 .single-review-image {
     width: 95%;
-    height: auto;
+    height:fit-content;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
 }
@@ -13,8 +13,15 @@
 .singlereview-cardinfo {
     margin-left: 0.7rem;
     margin-top: 0.3rem;
+    width: 100%;
 }
 
+.single-review-info{
+    width: 100%;
+}
+.comments-container{
+    width: 100%;
+}
 .all-comments-upper-options {
     margin: 0.7rem auto;
     display: flex;
@@ -69,7 +76,7 @@
 }
 
 
-@media (min-width: 600px) {
+@media (min-width: 785px) {
     .single-review-image {
         display: flex;
         width: 55%;
@@ -95,7 +102,7 @@
     }
 
     .comments-container {
-        width: 98.5%;
+        width: 95%;
 
     }
 }

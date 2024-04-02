@@ -80,8 +80,11 @@
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
-@media (min-width: 600px) {
-
+@media (min-width: 785px) {
+    #root {
+        width: fit-content;
+        overflow-x: hidden;
+    }
 
     #initialhome-options {
         justify-content: center;
