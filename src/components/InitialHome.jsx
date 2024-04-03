@@ -7,6 +7,7 @@ import { FaArrowDown, FaArrowUp, FaShareAlt } from "react-icons/fa";
 import { FiThumbsUp } from "react-icons/fi";
 import { BiCommentDetail } from "react-icons/bi";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Loading from "./Loading";
 import { dateFormater } from "../utils/dateFormater";
 
 const InitialHome = () => {
@@ -49,10 +50,16 @@ const InitialHome = () => {
     });
   }, [isCategory, sortBy, orderBy]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div>
+        <Loading isLoading={isLoading} />
+      </div>
+    );
+  }
 
   return (
-    <main>
+    <div className="contents-container">
       <section id="initialhome-options">
         <IsCatogory
           category={category}
@@ -165,7 +172,7 @@ const InitialHome = () => {
           );
         })}
       </section>
-    </main>
+    </div>
   );
 };
 
