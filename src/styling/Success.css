@@ -1,11 +1,17 @@
-.success-img {
-    width: 100%;
+/* .success-img {
+    width: 50%;
     height: auto;
-}
+} */
 
+.success-msg{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    align-items: center;
+}
 .back-to-review-btn-successpage {
     display: flex;
-    margin: 0 auto;
+    margin: 25px auto;
     align-items: center;
 }
 

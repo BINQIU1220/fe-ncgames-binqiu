@@ -1,11 +1,19 @@
-.deleted-img {
+/* .deleted-img {
     width: 100%;
     height: auto;
-}
+} */
 
+.delete-msg{
+  
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto;
+        align-items: center;
+    
+}
 .back-to-comments-btn-deletedpage {
     display: flex;
-    margin: 0 auto;
+    margin: 25px auto;
     align-items: center;
 }
 

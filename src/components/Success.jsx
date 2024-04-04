@@ -8,11 +8,18 @@ const Success = () => {
 
   return (
     <div className="success-page">
-      <img
+      {/* <img
         className="success-img"
         src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/60c0e28575cd7c21701806fd_q1cunpuhbdreMPFRSFLyfUXNzpqv_I5fz_plwv6gV3sMNXwUSPrq88pC2iJijEV7wERnKXtdTA0eE4HvdnntGo9AHAWn-IcMPKV-rZw1v75vlTEoLF4OdNqsRb7C6r7Mvzrm7fe4.png"
         alt="Submission success"
-      ></img>
+      ></img> */}
+      <div className="success-msg">
+        <h1>You submission has been successful!</h1>
+        <p>
+          Thanks! We have received your comment and you can now view it on our
+          website now.
+        </p>
+      </div>
       <button
         className="back-to-review-btn-successpage"
         onClick={() => {
