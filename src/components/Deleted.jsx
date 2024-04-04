@@ -18,9 +18,9 @@ const Success = () => {
         <p>The comment has been deleted successfully.</p>
       </div>
       <button
-        className="back-to-comments-btn-deletedpage"
+        className="back-to-review-btn-successpage"
         onClick={() => {
-          navigate(`/reviews/comments/${location.pathname.split("/")[2]}`);
+          navigate(`/reviews/review_id/${location.pathname.split("/")[2]}`);
         }}
       >
         <RiArrowGoBackFill /> Back to Review
