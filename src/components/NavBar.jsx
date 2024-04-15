@@ -1,4 +1,5 @@
-import * as React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,24 +9,24 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import OnSelectCategory from "./OnSelectCategory";
+import OnSelectSort from "./OnSelectSort";
+import OrderAndCopy from "./OrderAndCopy";
 
-const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] =
-    (React.useState < null) | (HTMLElement > null);
-  const [anchorElUser, setAnchorElUser] =
-    (React.useState < null) | (HTMLElement > null);
+function NavBar(props) {
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -41,12 +42,19 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <SportsEsportsIcon
+            fontSize="large"
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            /* href="#app-bar-with-responsive-menu" */
+            onClick={() => navigate(`/`)}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -57,9 +65,8 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            NC-GAMES
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -89,14 +96,44 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/*  smaller screen menu icon  */}
+              {/*  {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+
+              {/*          <form id="select-sort">
+                <select
+                  id="sort-name"
+                  name="sort-name"
+                  defaultValue=""
+                  onChange={(event) => {
+                    props.setSortBy(event.target.value);
+                    if (
+                      props.category_name === undefined ||
+                      props.category_name === "all"
+                    ) {
+                      props.navigate(
+                        `/reviews/all/sort_by/${event.target.value}`
+                      );
+                    } else {
+                      props.navigate(
+                        `/reviews/${props.category_name}/sort_by/${event.target.value}`
+                      );
+                    }
+                  }}
+                >
+                  <option value="">Sort</option>
+                  <option value="votes">By Votes</option>
+                  <option value="comment_count">By Comment Count</option>
+                </select>
+              </form> */}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <SportsEsportsIcon
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -113,20 +150,19 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            NC-GAMES
           </Typography>
+          {/*  wider screen menu bar  */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+            <OnSelectCategory category={props.category} />
 
+            <OnSelectSort category_name={props.category_name} />
+            <OrderAndCopy
+              category_name={props.category_name}
+              sortBy={props.sortBy}
+            />
+          </Box>
+          {/* //right side user profile and login icon */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -161,4 +197,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default NavBar;

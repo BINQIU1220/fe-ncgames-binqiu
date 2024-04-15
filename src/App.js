@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+
 import InitialHome from "./components/InitialHome";
 import SingleReview from "./components/SingleReview";
 import ErroHandle from "./components/ErroHandle";
@@ -11,10 +11,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className="header-container">
-          <Header />
-        </div>
-
         <div className="contents-container">
           <Routes>
             <Route path="/" element={<InitialHome />} />
