@@ -64,6 +64,10 @@
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
+.reviews-list{
+    margin-top: 8px;
+}
+
 @media (max-width: 334px) {
     #initialhome-options {
         display: flex;
