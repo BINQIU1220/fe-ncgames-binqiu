@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import OnSelectCategory from "./OnSelectCategory";
 import OnSelectSort from "./OnSelectSort";
-import OrderAndCopy from "./OrderAndCopy";
+import OnOrder from "./OnOrder";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -157,7 +157,7 @@ function NavBar(props) {
             <OnSelectCategory category={props.category} />
 
             <OnSelectSort category_name={props.category_name} />
-            <OrderAndCopy
+            <OnOrder
               category_name={props.category_name}
               sortBy={props.sortBy}
             />

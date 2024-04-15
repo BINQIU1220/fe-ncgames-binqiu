@@ -11,7 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate, useParams } from "react-router-dom";
 
-function OrderAndCopy(props) {
+function OnOrder(props) {
   const [open, setOpen] = useState(false);
   const [order, setOrder] = useState("");
   const navigate = useNavigate();
@@ -74,4 +74,4 @@ function OrderAndCopy(props) {
   );
 }
 
-export default OrderAndCopy;
+export default OnOrder;

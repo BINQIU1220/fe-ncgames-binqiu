@@ -1,26 +1,32 @@
-.error-404-img {
-  width: 80%;
-  height: auto;
-}
-
-.back-home-btn-errorpage {
+.error-msg{
   display: flex;
-  margin: 0 auto;
+  flex-direction: column;
+ margin-top: ;
+  margin: 10px auto;
   align-items: center;
+  font-size: x-large;
 }
 
-.error-others-img {
-  width: 95%;
-  height: auto;
+a {
+  color: inherit;
 }
 
-@media (min-width: 600px) {
-  .error-404 {
-    width: 60%;
-    margin-left: 250px;
-  }
-
-  .back-home-btn-errorpage {
-    margin-top: 10rem;
-  }
+.errmsg1 {
+  font-size: 5em
 }
+
+.errmsg2{
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  text-align: inherit;
+}
+
+.errmsg3{    color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: inherit;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  text-align: inherit;}
