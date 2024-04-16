@@ -35,7 +35,7 @@ function OnSelectCategory() {
           fontFamily: "Josefin Sans",
           color: "white",
           fontWeight: 550,
-          marginTop: "2.5px",
+          marginTop: "0.18rem",
         }}
       >
         Category

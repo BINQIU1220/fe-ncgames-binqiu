@@ -91,7 +91,7 @@ function NavBar(props) {
                 fontFamily: "Josefin Sans",
                 color: "white",
                 fontWeight: 550,
-                marginTop: "2.5px",
+                marginTop: "0.18rem",
               }}
             >
               NC-GAMES
@@ -99,7 +99,11 @@ function NavBar(props) {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <Button onClick={toggleDrawer(true)} id="drawer-button">
-              <MenuIcon />
+              <MenuIcon
+                sx={{
+                  color: "white",
+                }}
+              />
             </Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
               <Box
@@ -107,50 +111,54 @@ function NavBar(props) {
                 role="presentation"
                 onClick={toggleDrawer(false)}
               >
-                <List>
-                  <ListItem
-                    key={"Most-Voted"}
-                    disablePadding
-                    onClick={() =>
-                      navigate("/reviews/all/sort_by/votes/order/DESC")
-                    }
-                  >
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <PollIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={"Most-Voted"} />
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem
-                    key={"Most-Commented"}
-                    disablePadding
-                    onClick={() =>
-                      navigate("/reviews/all/sort_by/comment_count/order/DESC")
-                    }
-                  >
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <ChatIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={"Most-Commented"} />
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem
-                    key={"Contact-Me"}
-                    disablePadding
-                    onClick={() =>
-                      (window.location = "mailto:ezio12a@hotmail.com")
-                    }
-                  >
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <MailIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={"Contact-Me"} />
-                    </ListItemButton>
-                  </ListItem>
-                </List>
+                <ThemeProvider theme={CustomTheme}>
+                  <List>
+                    <ListItem
+                      key={"Most-Voted"}
+                      disablePadding
+                      onClick={() =>
+                        navigate("/reviews/all/sort_by/votes/order/DESC")
+                      }
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <PollIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Most-Voted"} />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem
+                      key={"Most-Commented"}
+                      disablePadding
+                      onClick={() =>
+                        navigate(
+                          "/reviews/all/sort_by/comment_count/order/DESC"
+                        )
+                      }
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <ChatIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Most-Commented"} />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem
+                      key={"Contact-Me"}
+                      disablePadding
+                      onClick={() =>
+                        (window.location = "mailto:ezio12a@hotmail.com")
+                      }
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <MailIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Contact-Me"} />
+                      </ListItemButton>
+                    </ListItem>
+                  </List>
+                </ThemeProvider>
               </Box>
             </Drawer>
           </Box>
@@ -167,11 +175,12 @@ function NavBar(props) {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
+              fontFamily: "Josefin Sans",
+              fontWeight: 550,
               letterSpacing: ".3rem",
               color: "white",
               textDecoration: "none",
+              marginTop: "0.3rem",
             }}
           >
             NC-GAMES
