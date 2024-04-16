@@ -46,9 +46,21 @@ function NavBar(props) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "rgb(11, 50, 66)",
+      }}
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar
+          disableGutters
+          sx={{
+            color: "#fff",
+            boxShadow: "none",
+            fontWeight: 550,
+          }}
+        >
           <SportsEsportsIcon
             fontSize="large"
             sx={{

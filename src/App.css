@@ -33,7 +33,7 @@ button:hover {
   transform: translate(-50%, -50%) !important;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+/* .css-hip9hq-MuiPaper-root-MuiAppBar-root{
   background-color: rgb(11, 50, 66) !important;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
-}
+} */
 
 #ncgame-button {
   font-size: 1.18rem;
