@@ -1,10 +1,6 @@
-import { AiFillHome } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
 import "../styling/ErrorHandle.css";
 
 const ErroHandle = ({ error }) => {
-  const navigate = useNavigate();
-
   return (
     <div className="error-others">
       {/*  <img

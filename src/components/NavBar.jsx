@@ -12,7 +12,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import PollIcon from "@mui/icons-material/Poll";
+import ChatIcon from "@mui/icons-material/Chat";
+import MailIcon from "@mui/icons-material/Mail";
 import CategoryMenu from "./CategoryMenu";
 import SortMenu from "./SortMenu";
 import OrderMenu from "./OrderMenu";
@@ -20,23 +29,20 @@ import OrderMenu from "./OrderMenu";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavBar(props) {
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
   };
 
   return (
@@ -68,50 +74,70 @@ function NavBar(props) {
             <Button id="ncgame-button">NC-GAMES</Button>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+            <Button onClick={toggleDrawer(true)} id="drawer-button">
               <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {/*  smaller screen menu icon  */}
-              {/*  {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
-            </Menu>
+            </Button>
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+              <Box
+                sx={{ width: 250 }}
+                role="presentation"
+                onClick={toggleDrawer(false)}
+              >
+                <List>
+                  <ListItem
+                    key={"Most-Voted"}
+                    disablePadding
+                    onClick={() =>
+                      navigate("/reviews/all/sort_by/votes/order/DESC")
+                    }
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <PollIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={"Most-Voted"} />
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem
+                    key={"Most-Commented"}
+                    disablePadding
+                    onClick={() =>
+                      navigate("/reviews/all/sort_by/comment_count/order/DESC")
+                    }
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <ChatIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={"Most-Commented"} />
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem
+                    key={"Contact-Me"}
+                    disablePadding
+                    onClick={() =>
+                      (window.location = "mailto:ezio12a@hotmail.com")
+                    }
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <MailIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={"Contact-Me"} />
+                    </ListItemButton>
+                  </ListItem>
+                </List>
+              </Box>
+            </Drawer>
           </Box>
           <SportsEsportsIcon
+            fontSize="large"
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           />
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            onClick={() => navigate(`/`)}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
