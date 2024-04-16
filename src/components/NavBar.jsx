@@ -9,12 +9,13 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import OnSelectCategory from "./OnSelectCategory";
-import OnSelectSort from "./OnSelectSort";
-import OnOrder from "./OnOrder";
+import CategoryMenu from "./CategoryMenu";
+import SortMenu from "./SortMenu";
+import OrderMenu from "./OrderMenu";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -65,7 +66,7 @@ function NavBar(props) {
               textDecoration: "none",
             }}
           >
-            NC-GAMES
+            <Button id="ncgame-button">NC-GAMES</Button>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -154,10 +155,10 @@ function NavBar(props) {
           </Typography>
           {/*  wider screen menu bar  */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <OnSelectCategory category={props.category} />
+            <CategoryMenu category={props.category} />
 
-            <OnSelectSort category_name={props.category_name} />
-            <OnOrder
+            <SortMenu category_name={props.category_name} />
+            <OrderMenu
               category_name={props.category_name}
               sortBy={props.sortBy}
             />

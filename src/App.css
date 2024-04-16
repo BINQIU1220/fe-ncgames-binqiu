@@ -45,3 +45,7 @@ button:hover {
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+#ncgame-button {
+  font-size: 1.18rem;
+}
