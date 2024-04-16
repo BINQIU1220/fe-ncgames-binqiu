@@ -31,10 +31,20 @@ const PatchVotes = ({ previsouVotes, review_id }) => {
     <>
       <p id="single-review-votes">Total votes: {votes}</p>
       <div id="vote-icons">
-        <button id="thumb-up" disabled={isDisbled} onClick={thumbUp}>
+        <button
+          className="other-buttons"
+          id="thumb-up"
+          disabled={isDisbled}
+          onClick={thumbUp}
+        >
           <GoThumbsup />
         </button>
-        <button id="thumb-down" disabled={isDisbled} onClick={thumbDown}>
+        <button
+          className="other-buttons"
+          id="thumb-down"
+          disabled={isDisbled}
+          onClick={thumbDown}
+        >
           <GoThumbsdown />
         </button>
       </div>

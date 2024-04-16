@@ -7,6 +7,7 @@ const Expandible = ({ children }) => {
     <>
       {showChildren ? children : null}
       <button
+        className="other-buttons"
         id="expande-btn"
         onClick={() => {
           setShowChildren((currentShow) => !currentShow);

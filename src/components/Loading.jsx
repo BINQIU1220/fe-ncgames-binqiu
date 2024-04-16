@@ -6,7 +6,7 @@ const Loading = (props) => {
       <ClipLoader
         speedMultiplier={0.5}
         loading={props.isLoading}
-        size={88.88}
+        size={100}
         color={"#8daa91"}
       />
     </div>

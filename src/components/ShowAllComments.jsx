@@ -35,7 +35,7 @@ const ShowAllComments = (props) => {
                   dateFormater(prop.created_at).time
                 } by ${prop.author}`}{" "}
                 <button
-                  className="delete-comment-btn"
+                  className="delete-comment-btn other-buttons"
                   onClick={() => {
                     navigate(`/reviews/${prop.review_id}/comments/deleted`);
                     deleteCommentsById(prop.comment_id);

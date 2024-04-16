@@ -58,7 +58,7 @@ function OnSelectCategory() {
               </Select>
             </FormControl>
           </Box>
-        </DialogContent>{" "}
+        </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
         </DialogActions>
