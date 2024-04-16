@@ -10,7 +10,6 @@ import NavBar from "./NavBar";
 
 const InitialHome = () => {
   const [reviews, setReviews] = useState([]);
-  const [category, setCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   let { category_name, sort_by, order } = useParams();
@@ -47,12 +46,7 @@ const InitialHome = () => {
   return (
     <div>
       <div className="header-container">
-        <NavBar
-          category={category}
-          setCategory={setCategory}
-          category_name={category_name}
-          navigate={navigate}
-        />
+        <NavBar category_name={category_name} />
       </div>
 
       <div className="contents-container">
@@ -86,6 +80,7 @@ const InitialHome = () => {
                 </div>
 
                 <button
+                  className="other-buttons"
                   id="more-info-btn"
                   key={review.review_id}
                   onClick={() => {

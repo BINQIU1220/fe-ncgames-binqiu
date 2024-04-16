@@ -54,7 +54,6 @@ function NavBar(props) {
             variant="h6"
             noWrap
             component="a"
-            /* href="#app-bar-with-responsive-menu" */
             onClick={() => navigate(`/`)}
             sx={{
               mr: 2,
@@ -103,33 +102,6 @@ function NavBar(props) {
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))} */}
-
-              {/*          <form id="select-sort">
-                <select
-                  id="sort-name"
-                  name="sort-name"
-                  defaultValue=""
-                  onChange={(event) => {
-                    props.setSortBy(event.target.value);
-                    if (
-                      props.category_name === undefined ||
-                      props.category_name === "all"
-                    ) {
-                      props.navigate(
-                        `/reviews/all/sort_by/${event.target.value}`
-                      );
-                    } else {
-                      props.navigate(
-                        `/reviews/${props.category_name}/sort_by/${event.target.value}`
-                      );
-                    }
-                  }}
-                >
-                  <option value="">Sort</option>
-                  <option value="votes">By Votes</option>
-                  <option value="comment_count">By Comment Count</option>
-                </select>
-              </form> */}
             </Menu>
           </Box>
           <SportsEsportsIcon

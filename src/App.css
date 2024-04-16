@@ -4,7 +4,7 @@ body  {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-button {
+.other-buttons {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -24,6 +24,13 @@ button {
 button:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
+}
+
+.loading {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root{
@@ -49,3 +56,4 @@ button:hover {
 #ncgame-button {
   font-size: 1.18rem;
 }
+

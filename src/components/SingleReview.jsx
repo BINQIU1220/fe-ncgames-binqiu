@@ -37,7 +37,7 @@ const SingleReview = () => {
           <div key={prop.review_id}>
             <section id="single-review-options">
               <button
-                className="show-comments-btn"
+                className="show-comments-btn other-buttons"
                 onClick={() => {
                   handleComments();
                 }}
@@ -45,7 +45,7 @@ const SingleReview = () => {
                 {visible === false ? "show comments" : "hide comments"}
               </button>
               <button
-                className="show-all-review-btn"
+                className="show-all-review-btn other-buttons"
                 onClick={() => {
                   navigate(`/`);
                 }}
@@ -72,7 +72,10 @@ const SingleReview = () => {
                       setNewComment(event.target.value);
                     }}
                   ></input>
-                  <button className="submit-comment-btn" type="submit">
+                  <button
+                    className="submit-comment-btn other-buttons"
+                    type="submit"
+                  >
                     Go!
                   </button>
                 </form>
