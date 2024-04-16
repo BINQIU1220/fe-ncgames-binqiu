@@ -22,6 +22,7 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import PollIcon from "@mui/icons-material/Poll";
 import ChatIcon from "@mui/icons-material/Chat";
 import MailIcon from "@mui/icons-material/Mail";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CategoryMenu from "./CategoryMenu";
 import SortMenu from "./SortMenu";
 import OrderMenu from "./OrderMenu";
@@ -45,6 +46,14 @@ function NavBar(props) {
     setOpen(newOpen);
   };
 
+  const CustomTheme = createTheme({
+    typography: {
+      allVariants: {
+        fontFamily: "Josefin Sans",
+      },
+    },
+  });
+
   return (
     <AppBar
       position="static"
@@ -53,14 +62,7 @@ function NavBar(props) {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar
-          disableGutters
-          sx={{
-            color: "#fff",
-            boxShadow: "none",
-            fontWeight: 550,
-          }}
-        >
+        <Toolbar disableGutters>
           <SportsEsportsIcon
             fontSize="large"
             sx={{
@@ -79,11 +81,21 @@ function NavBar(props) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
-            <Button id="ncgame-button">NC-GAMES</Button>
+            <Button
+              id="ncgame-button"
+              sx={{
+                fontFamily: "Josefin Sans",
+                color: "white",
+                fontWeight: 550,
+                marginTop: "2.5px",
+              }}
+            >
+              NC-GAMES
+            </Button>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <Button onClick={toggleDrawer(true)} id="drawer-button">
@@ -146,6 +158,7 @@ function NavBar(props) {
             fontSize="large"
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           />
+
           <Typography
             variant="h5"
             noWrap
@@ -157,52 +170,61 @@ function NavBar(props) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
             NC-GAMES
           </Typography>
           {/*  wider screen menu bar  */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <CategoryMenu category={props.category} />
-
-            <SortMenu category_name={props.category_name} />
-            <OrderMenu
-              category_name={props.category_name}
-              sortBy={props.sortBy}
-            />
-          </Box>
-          {/* //right side user profile and login icon */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+          <ThemeProvider theme={CustomTheme}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              <CategoryMenu category={props.category} />
+              <SortMenu category_name={props.category_name} />
+              <OrderMenu
+                category_name={props.category_name}
+                sortBy={props.sortBy}
+              />
+            </Box>
+          </ThemeProvider>
+
+          {/* //right side user profile and login icon */}
+          <ThemeProvider theme={CustomTheme}>
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </ThemeProvider>
         </Toolbar>
       </Container>
     </AppBar>

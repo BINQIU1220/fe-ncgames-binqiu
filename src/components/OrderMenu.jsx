@@ -49,6 +49,12 @@ function OnOrder(props) {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        sx={{
+          fontFamily: "Josefin Sans",
+          color: "white",
+          fontWeight: 550,
+          marginTop: "2.5px",
+        }}
       >
         Order
       </Button>
