@@ -6,6 +6,8 @@ import ErroHandle from "./components/ErroHandle";
 import Success from "./components/Success";
 import Deleted from "./components/Deleted";
 import LandingPage from "./components/LandingPage";
+import SignUp from "./components/Signup";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
               element={<Deleted />}
             />
             <Route path="/oops" element={<ErroHandle />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
           </Routes>{" "}
         </div>
       </div>

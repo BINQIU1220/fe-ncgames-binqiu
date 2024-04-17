@@ -251,10 +251,20 @@ function NavBar(props) {
                     onClose={handleCloseUserMenu}
                   >
                     <MenuItem key={"login"} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">Log-in</Typography>
+                      <Typography
+                        textAlign="center"
+                        onClick={() => navigate(`/login`)}
+                      >
+                        Log-in
+                      </Typography>
                     </MenuItem>
                     <MenuItem key={"signup"} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">Sign-up</Typography>
+                      <Typography
+                        textAlign="center"
+                        onClick={() => navigate(`/signup`)}
+                      >
+                        Sign-up
+                      </Typography>
                     </MenuItem>
                   </Menu>
                 </Box>

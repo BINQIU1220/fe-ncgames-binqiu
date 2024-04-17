@@ -63,8 +63,12 @@ function LandingPage() {
             >
               Contact me
             </Button>
-            <Button color="inherit">Log in</Button>
-            <Button color="inherit">Sign up free</Button>
+            <Button color="inherit" onClick={() => navigate(`/login`)}>
+              Log in
+            </Button>
+            <Button color="inherit" onClick={() => navigate(`/signup`)}>
+              Sign up free
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
