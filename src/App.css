@@ -55,6 +55,12 @@
     align-items: center;
     align-content: center;
     }
+
+/*     html,
+    body {
+      overflow-x: hidden;
+    }
+   */
 }
 
 @media (min-width: 501px) and (max-width: 1070px) {
@@ -71,6 +77,12 @@
     margin-inline-end: 0px;
     text-align:center;
   }
+
+/*   html,
+  body {
+    overflow-x: hidden;
+  }
+ */
 }
 
 @keyframes fadeIn {
