@@ -37,8 +37,8 @@ const ShowAllComments = (props) => {
                 <button
                   className="delete-comment-btn other-buttons"
                   onClick={() => {
-                    navigate(`/reviews/${prop.review_id}/comments/deleted`);
                     deleteCommentsById(prop.comment_id);
+                    navigate(`/reviews/${prop.review_id}/comments/deleted`);
                   }}
                 >
                   <MdDeleteOutline />

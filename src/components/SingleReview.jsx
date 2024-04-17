@@ -46,9 +46,7 @@ const SingleReview = () => {
               </button>
               <button
                 className="show-all-review-btn other-buttons"
-                onClick={() => {
-                  navigate(`/`);
-                }}
+                onClick={() => navigate(`/reviews/category_name/all`)}
               >
                 All Reviews
               </button>

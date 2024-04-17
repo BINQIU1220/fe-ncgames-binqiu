@@ -1,10 +1,9 @@
 .error-msg{
   display: flex;
   flex-direction: column;
- margin-top: ;
-  margin: 10px auto;
   align-items: center;
   font-size: x-large;
+  margin: 10px auto;
 }
 
 a {

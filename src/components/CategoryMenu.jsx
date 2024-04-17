@@ -32,7 +32,7 @@ function OnSelectCategory() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         sx={{
-          fontFamily: "Josefin Sans",
+          fontFamily: "Roboto",
           color: "white",
           fontWeight: 550,
           marginTop: "0.18rem",

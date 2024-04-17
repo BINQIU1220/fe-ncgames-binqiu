@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import InitialHome from "./components/InitialHome";
 import SingleReview from "./components/SingleReview";
 import ErroHandle from "./components/ErroHandle";
 import Success from "./components/Success";
 import Deleted from "./components/Deleted";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <div className="contents-container">
           <Routes>
-            <Route path="/" element={<InitialHome />} />
+            <Route path="/" element={<LandingPage />} />
             <Route
               path="/reviews/category_name/:category_name"
               element={<InitialHome />}
