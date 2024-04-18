@@ -28,6 +28,7 @@
   flex-direction: column;
   align-items: center;
   align-content: right;
+  padding-top: 1.3rem;
   }
 
 @media (max-width: 500px){
@@ -54,6 +55,10 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+    }
+
+    .appBarHidden{
+      display: none;
     }
 
     html,
@@ -91,8 +96,31 @@
 }
 
 .get-started-btn {
-  animation: fadeIn 1.2s linear;
+  animation: fadeIn 1s linear;
 
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.appbarClass{
+ /*  animation-name: pop-in;
+  animation-duration: 1s; */
+  animation: move 0.7s;
 }
 
 body  {

@@ -8,58 +8,76 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import TypeIt from "typeit-react";
 import { useNavigate } from "react-router-dom";
+import { createTheme } from "@mui/material/styles";
 
 function LandingPage() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [getStartedBtn, setgetStartedBtn] = useState(false);
+  const [topAppBar, settopAppBar] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setIsVisible(true);
-    }, 12166);
+    const getStartedBtnTimer = setTimeout(() => {
+      setgetStartedBtn(true);
+    }, 12500);
+    const optionsAppBar = setTimeout(() => {
+      settopAppBar(true);
+    }, 13600);
 
     return () => {
-      clearTimeout(timerId);
+      clearTimeout(getStartedBtnTimer);
+      clearTimeout(optionsAppBar);
     };
   }, []);
+
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        small: 405, // Custom breakpoint for small screens
+      },
+    },
+  });
 
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          className="appbarClass"
-          position="static"
-          sx={{
-            backgroundColor: "rgb(11, 50, 66)",
-            display: { xs: "none", md: "none", lg: "flex" },
-          }}
-        >
-          <Toolbar>
-            <SportsEsportsIcon fontSize="large" />
+        {topAppBar ? (
+          <AppBar
+            className="appbarClass"
+            position="static"
+            sx={{
+              backgroundColor: "rgb(11, 50, 66)",
+              display: { xs: "none", md: "none", lg: "flex" },
+            }}
+          >
+            <Toolbar>
+              <SportsEsportsIcon fontSize="large" />
 
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Button
+                  size="large"
+                  color="inherit"
+                  onClick={() => window.location.reload()}
+                >
+                  NC-GAMES
+                </Button>
+              </Typography>
               <Button
-                size="large"
                 color="inherit"
-                onClick={() => window.location.reload()}
+                onClick={() => (window.location = "mailto:ezio12a@hotmail.com")}
               >
-                NC-GAMES
+                Contact me
               </Button>
-            </Typography>
-            <Button
-              color="inherit"
-              onClick={() => (window.location = "mailto:ezio12a@hotmail.com")}
-            >
-              Contact me
-            </Button>
-            <Button color="inherit" onClick={() => navigate(`/login`)}>
-              Log in
-            </Button>
-            <Button color="inherit" onClick={() => navigate(`/signup`)}>
-              Sign up free
-            </Button>
-          </Toolbar>
-        </AppBar>
+              <Button color="inherit" onClick={() => navigate(`/login`)}>
+                Log in
+              </Button>
+              <Button color="inherit" onClick={() => navigate(`/signup`)}>
+                Sign up free
+              </Button>
+            </Toolbar>
+          </AppBar>
+        ) : (
+          <div className="appBarHidden" style={{ height: "64px" }}></div>
+        )}
       </Box>
       <div className="welcome-msg-container">
         <TypeIt
@@ -89,7 +107,7 @@ function LandingPage() {
               .delete(1, { delay: 350 })
               .type("o", { delay: 400 })
               .move(null, { to: "END" })
-              .pause(500)
+              .pause(800)
               .delete(".place", { delay: 200, instant: true })
               .pause(350)
               .type(
@@ -103,7 +121,7 @@ function LandingPage() {
           }}
         />
 
-        {isVisible && (
+        {getStartedBtn && (
           <Button
             className="get-started-btn"
             component="label"
@@ -120,6 +138,9 @@ function LandingPage() {
               backgroundColor: "rgb(0, 123, 39)",
               alignContent: "center",
               alignItems: "center",
+              [theme.breakpoints.down("small")]: {
+                maxWidth: "50%",
+              },
             }}
           >
             Get Started
