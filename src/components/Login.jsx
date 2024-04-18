@@ -61,6 +61,7 @@ export default function SignIn() {
             boxShadow: "none",
             background: "transparent",
             display: { xs: "none", md: "none", lg: "flex" },
+            animation: "none",
           }}
         >
           <Toolbar>
