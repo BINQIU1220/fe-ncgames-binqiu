@@ -13,21 +13,6 @@ function LandingPage() {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
-  /*   const Wrapper = styled(Box)(({ theme }) => ({
-    [theme.breakpoints.down("md")]: {
-      position: "fixed",
-      top: "70vh",
-      left: "-13vw",
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: "50vw",
-      marginTop: "7.5rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-      marginLeft: "65.5rem",
-    },
-  })); */
-
   useEffect(() => {
     const timerId = setTimeout(() => {
       setIsVisible(true);
@@ -53,7 +38,11 @@ function LandingPage() {
             <SportsEsportsIcon fontSize="large" />
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Button size="large" color="inherit">
+              <Button
+                size="large"
+                color="inherit"
+                onClick={() => window.location.reload()}
+              >
                 NC-GAMES
               </Button>
             </Typography>
@@ -113,7 +102,7 @@ function LandingPage() {
             return instance;
           }}
         />
-        {/*  <Wrapper> */}
+
         {isVisible && (
           <Button
             className="get-started-btn"
@@ -136,7 +125,6 @@ function LandingPage() {
             Get Started
           </Button>
         )}
-        {/*  </Wrapper> */}
       </div>
     </div>
   );

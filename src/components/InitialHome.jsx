@@ -54,41 +54,44 @@ const InitialHome = () => {
           {reviews.map((review) => {
             return (
               <div className="review-card" key={review.review_id}>
-                <img
-                  src={review.review_img_url}
-                  alt="Review"
-                  className="review-image"
-                />
+                <div>
+                  <img
+                    src={review.review_img_url}
+                    alt="Review"
+                    className="review-image"
+                  />
 
-                <div className="review-title">{review.title}</div>
+                  <div className="review-title">{review.title}</div>
 
-                <div className="vote-comment">
-                  <FiThumbsUp></FiThumbsUp>
-                  {review.votes}
-                  <BiCommentDetail></BiCommentDetail>
-                  {review.comment_count}
+                  <div className="vote-comment">
+                    <FiThumbsUp></FiThumbsUp>
+                    {review.votes}
+                    <BiCommentDetail></BiCommentDetail>
+                    {review.comment_count}
+                  </div>
+
+                  <div className="created-at">
+                    {`${dateFormater(review.created_at).date} at ${
+                      dateFormater(review.created_at).time
+                    } by ${review.owner}`}
+                  </div>
+
+                  <div className="category-homepage">
+                    {review.category.toUpperCase()}
+                  </div>
                 </div>
-
-                <div className="created-at">
-                  {`${dateFormater(review.created_at).date} at ${
-                    dateFormater(review.created_at).time
-                  } by ${review.owner}`}
+                <div>
+                  <button
+                    className="other-buttons"
+                    id="more-info-btn"
+                    key={review.review_id}
+                    onClick={() => {
+                      navigate(`/reviews/review_id/${review.review_id}`);
+                    }}
+                  >
+                    More
+                  </button>
                 </div>
-
-                <div className="category-homepage">
-                  {review.category.toUpperCase()}
-                </div>
-
-                <button
-                  className="other-buttons"
-                  id="more-info-btn"
-                  key={review.review_id}
-                  onClick={() => {
-                    navigate(`/reviews/review_id/${review.review_id}`);
-                  }}
-                >
-                  More
-                </button>
               </div>
             );
           })}
