@@ -39,6 +39,7 @@ function LandingPage() {
 
   return (
     <div>
+      <div className="bg"></div>
       <Box sx={{ flexGrow: 1 }}>
         {topAppBar ? (
           <AppBar
