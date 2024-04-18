@@ -5,15 +5,15 @@
     gap: 10px;
 }
 
-.reviews-list::after {
+/* makes the last item stick to the left start of a new row */
+/* .reviews-list::after {
     content: "";
     flex: auto;
-  }
+  } */
 
 .review-card {
     border: solid 3px rgb(8, 95, 95);
     padding: 0.5rem;
-    padding-bottom: 2.3rem;
     margin-top: 0.3rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
@@ -70,19 +70,6 @@
 
 
 @media (max-width: 400px) {
-    #initialhome-options {
-        display: flex;
-        flex-direction: column;
-        margin-left: 0.2rem;
-    }
-
-    #select-sort {
-        margin-left: 0.3rem;
-    }
-
-    #order-arrows {
-        margin-left: 0.4rem;
-    }
 
     .review-image {
         width: 100%;
@@ -92,17 +79,13 @@
 
 @media (min-width: 900px) {
     .reviews-list > div {
-        flex-basis: 350px; /* width: 350px; */
+        flex-basis: 350px; 
       }
       
     .review-card {
         border: solid 3px rgb(8, 95, 95);
         padding: 0.5rem;
         margin: 0 auto;
-    }
-
-    #initialhome-options {
-        padding: 0.4rem;
     }
 }
 

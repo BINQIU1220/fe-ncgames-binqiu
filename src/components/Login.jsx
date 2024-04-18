@@ -12,6 +12,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { useNavigate } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 
 function Copyright(props) {
   return (
@@ -22,20 +27,20 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -47,6 +52,33 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      {" "}
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          className="appbarClass"
+          position="fixed"
+          sx={{
+            boxShadow: "none",
+            background: "transparent",
+            display: { xs: "none", md: "none", lg: "flex" },
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Button size="large" color="inherit" onClick={() => navigate(-1)}>
+                <ArrowBackIcon fontSize="large" sx={{ mr: 1 }} /> Go back
+              </Button>
+            </Typography>
+            <Button
+              size="large"
+              color="inherit"
+              onClick={() => navigate(`/reviews/category_name/all`)}
+            >
+              <SportsEsportsIcon fontSize="large" sx={{ mr: 1 }} /> HOME
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -108,7 +140,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

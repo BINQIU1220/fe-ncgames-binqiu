@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../App.css";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +13,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -29,9 +35,15 @@ function Copyright(props) {
   );
 }
 
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function SignUp() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -45,6 +57,32 @@ function SignUp() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          className="appbarClass"
+          position="fixed"
+          sx={{
+            boxShadow: "none",
+            background: "transparent",
+            display: { xs: "none", md: "none", lg: "flex" },
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Button size="large" color="inherit" onClick={() => navigate(-1)}>
+                <ArrowBackIcon fontSize="large" sx={{ mr: 1 }} /> Go back
+              </Button>
+            </Typography>
+            <Button
+              size="large"
+              color="inherit"
+              onClick={() => navigate(`/reviews/category_name/all`)}
+            >
+              <SportsEsportsIcon fontSize="large" sx={{ mr: 1 }} /> HOME
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -129,7 +167,7 @@ function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Log in
                 </Link>
               </Grid>
