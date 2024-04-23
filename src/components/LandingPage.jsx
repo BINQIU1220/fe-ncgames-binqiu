@@ -18,7 +18,7 @@ function LandingPage() {
   useEffect(() => {
     const getStartedBtnTimer = setTimeout(() => {
       setgetStartedBtn(true);
-    }, 12500);
+    }, 1);
     const optionsAppBar = setTimeout(() => {
       settopAppBar(true);
     }, 13600);

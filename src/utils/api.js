@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gamesApi = axios.create({
-  baseURL: "https://be-nc-games-workplace.onrender.com/api",
+  baseURL: "http://localhost:9090/api",
 });
 
 export const getCategories = () => {
@@ -24,7 +24,8 @@ export const getReviews = (order, sort_by) => {
       return res.data.reviews;
     })
     .catch((err) => {
-      window.location = "/opps";
+      console.log(err);
+      window.location = "/oops";
     });
 };
 
@@ -78,4 +79,22 @@ export const postComment = (body, review_id) => {
 
 export const deleteCommentsById = (comment_id) => {
   return gamesApi.delete(`comments/${comment_id}`);
+};
+
+export const userSignup = (username, password, fullname) => {
+  return gamesApi
+    .post("/signup", {
+      username: username,
+      password: password,
+      name: fullname,
+    })
+    .then((res) => {
+      console.log("res", res);
+      if (res.data === "Username already exists. Try logging in.") {
+        alert("Username already exists. Try logging in.");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

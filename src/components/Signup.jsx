@@ -18,6 +18,7 @@ import Toolbar from "@mui/material/Toolbar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { useNavigate } from "react-router-dom";
+import { userSignup } from "../utils/api";
 
 function Copyright(props) {
   return (
@@ -47,6 +48,22 @@ function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if (data.get("username") === "") {
+      alert("Username cannot be empty. Please fill the form correctly.");
+    } else if (data.get("fullname") === "") {
+      alert("Fullname cannot be empty. Please fill the form correctly.");
+    } else if (data.get("email") === "") {
+      alert("Email cannot be empty. Please fill the form correctly.");
+    } else if (data.get("password") === "") {
+      alert("Password cannot be empty. Please fill the form correctly.");
+    } else {
+      userSignup(
+        data.get("username"),
+        data.get("password"),
+        data.get("fullname")
+      );
+    }
+
     console.log({
       username: data.get("username"),
       fullname: data.get("fullname"),
