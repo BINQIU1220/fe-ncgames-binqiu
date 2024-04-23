@@ -81,17 +81,22 @@ export const deleteCommentsById = (comment_id) => {
   return gamesApi.delete(`comments/${comment_id}`);
 };
 
-export const userSignup = (username, password, fullname) => {
+export const userSignup = (username, password, fullname, email) => {
   return gamesApi
     .post("/signup", {
       username: username,
       password: password,
       name: fullname,
+      email: email,
     })
     .then((res) => {
       console.log("res", res);
-      if (res.data === "Username already exists. Try logging in.") {
-        alert("Username already exists. Try logging in.");
+      if (res.data === "Email already exists. Try logging in.") {
+        alert("Email already exists. Try logging in.");
+      } else if (res.data === "Username already exists. Try logging in.") {
+        alert(
+          "Username already exists. Try logging in with your corresponding email or register with another username please."
+        );
       }
     })
     .catch((err) => {

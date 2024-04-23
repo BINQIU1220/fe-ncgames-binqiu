@@ -60,16 +60,10 @@ function SignUp() {
       userSignup(
         data.get("username"),
         data.get("password"),
-        data.get("fullname")
+        data.get("fullname"),
+        data.get("email")
       );
     }
-
-    console.log({
-      username: data.get("username"),
-      fullname: data.get("fullname"),
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (
