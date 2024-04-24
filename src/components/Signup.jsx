@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "./UserContext";
 import "../App.css";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -45,13 +46,19 @@ const defaultTheme = createTheme({
 function SignUp() {
   const navigate = useNavigate();
 
+  const {
+    setLoggedInUser,
+    setUserAvatar,
+    setIsLoggedIn,
+    isLoggedIn,
+    prevPath,
+  } = useContext(UserContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if (data.get("username") === "") {
       alert("Username cannot be empty. Please fill the form correctly.");
-    } else if (data.get("fullname") === "") {
-      alert("Fullname cannot be empty. Please fill the form correctly.");
     } else if (data.get("email") === "") {
       alert("Email cannot be empty. Please fill the form correctly.");
     } else if (data.get("password") === "") {
@@ -60,11 +67,27 @@ function SignUp() {
       userSignup(
         data.get("username"),
         data.get("password"),
-        data.get("fullname"),
+        data.get("avatar"),
         data.get("email")
-      );
+      )
+        .then((res) => {
+          setLoggedInUser(res.username);
+          setUserAvatar(res.avatar_url);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn && prevPath !== "/") {
+      navigate(prevPath);
+    } else if (isLoggedIn) {
+      navigate("/reviews/category_name/all");
+    }
+  }, [isLoggedIn, prevPath, navigate]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -131,12 +154,12 @@ function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   fullWidth
-                  id="fullname"
-                  label="Full Name"
-                  name="fullname"
-                  autoComplete="fullname"
+                  id="avatar"
+                  label="Avatar URL"
+                  name="avatar"
+                  autoComplete="Avatar URL"
+                  placeholder="Avatar URL"
                 />
               </Grid>
               <Grid item xs={12}>
