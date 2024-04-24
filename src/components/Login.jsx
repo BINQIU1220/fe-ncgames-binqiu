@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "./UserContext";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -42,15 +43,35 @@ const defaultTheme = createTheme({
 
 export default function SignIn() {
   const navigate = useNavigate();
+  const {
+    setLoggedInUser,
+    setUserAvatar,
+    setIsLoggedIn,
+    isLoggedIn,
+    prevPath,
+  } = useContext(UserContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    userLogin(data.get("email"), data.get("password"));
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    userLogin(data.get("email"), data.get("password"))
+      .then((res) => {
+        setLoggedInUser(res.data[0]);
+        setUserAvatar(res.data[1]);
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    if (isLoggedIn && prevPath !== "/") {
+      navigate(prevPath);
+    } else if (isLoggedIn) {
+      navigate("/reviews/category_name/all");
+    }
+  }, [isLoggedIn, prevPath, navigate]);
 
   return (
     <ThemeProvider theme={defaultTheme}>

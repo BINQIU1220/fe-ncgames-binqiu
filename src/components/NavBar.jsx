@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -52,6 +54,15 @@ HideOnScroll.propTypes = {
 function NavBar(props) {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [open, setOpen] = useState(false);
+  const {
+    loggedInUser,
+    userAvatar,
+    setUserAvatar,
+    isLoggedIn,
+    setIsLoggedIn,
+    setLoggedInUser,
+    setPrevPath,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => {
@@ -209,7 +220,7 @@ function NavBar(props) {
               >
                 NC-GAMES
               </Typography>
-              {/*  wider screen menu bar  */}
+
               <ThemeProvider theme={CustomTheme}>
                 <Box
                   sx={{
@@ -226,12 +237,21 @@ function NavBar(props) {
                 </Box>
               </ThemeProvider>
 
-              {/* //right side user profile and login icon */}
               <ThemeProvider theme={CustomTheme}>
+                {isLoggedIn && (
+                  <Typography
+                    sx={{
+                      display: { xs: "none", md: "flex" },
+                      pr: "0.8rem",
+                    }}
+                  >
+                    {loggedInUser}
+                  </Typography>
+                )}
                 <Box sx={{ flexGrow: 0 }}>
-                  <Tooltip title="Open settings">
+                  <Tooltip>
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar alt="User avatar" src="" />
+                      <Avatar alt="User avatar" src={userAvatar} />
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -250,22 +270,42 @@ function NavBar(props) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    <MenuItem key={"login"} onClick={handleCloseUserMenu}>
-                      <Typography
-                        textAlign="center"
-                        onClick={() => navigate(`/login`)}
-                      >
-                        Log-in
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem key={"signup"} onClick={handleCloseUserMenu}>
-                      <Typography
-                        textAlign="center"
-                        onClick={() => navigate(`/signup`)}
-                      >
-                        Sign-up
-                      </Typography>
-                    </MenuItem>
+                    {isLoggedIn ? (
+                      <MenuItem key={"login"} onClick={handleCloseUserMenu}>
+                        <Typography
+                          textAlign="center"
+                          onClick={() => {
+                            setLoggedInUser("");
+                            setIsLoggedIn(false);
+                            setUserAvatar("");
+                            setPrevPath(window.location.pathname);
+                          }}
+                        >
+                          Log out
+                        </Typography>
+                      </MenuItem>
+                    ) : (
+                      <MenuItem key={"login"} onClick={handleCloseUserMenu}>
+                        <Typography
+                          textAlign="center"
+                          onClick={() => {
+                            navigate(`/login`);
+                          }}
+                        >
+                          Log-in
+                        </Typography>
+                      </MenuItem>
+                    )}
+                    {!isLoggedIn && (
+                      <MenuItem key={"signup"} onClick={handleCloseUserMenu}>
+                        <Typography
+                          textAlign="center"
+                          onClick={() => navigate(`/signup`)}
+                        >
+                          Sign-up
+                        </Typography>
+                      </MenuItem>
+                    )}
                   </Menu>
                 </Box>
               </ThemeProvider>

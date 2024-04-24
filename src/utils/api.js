@@ -111,9 +111,15 @@ export const userLogin = (email, password) => {
       password: password,
     })
     .then((res) => {
-      console.log(res);
+      if (res.data === "Incorrect Password") {
+        alert("Incorrect password. Please try again.");
+      } else if (res.data === "User not found") {
+        alert("User not found. Please fill in the correct email or sign up.");
+      } else {
+        return res;
+      }
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };
