@@ -103,3 +103,17 @@ export const userSignup = (username, password, fullname, email) => {
       console.log(err);
     });
 };
+
+export const userLogin = (email, password) => {
+  return gamesApi
+    .post("/login", {
+      email: email,
+      password: password,
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

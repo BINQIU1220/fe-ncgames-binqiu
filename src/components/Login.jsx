@@ -17,6 +17,7 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import { userLogin } from "../utils/api";
 
 function Copyright(props) {
   return (
@@ -44,6 +45,7 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    userLogin(data.get("email"), data.get("password"));
     console.log({
       email: data.get("email"),
       password: data.get("password"),
