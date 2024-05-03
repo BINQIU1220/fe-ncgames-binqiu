@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
-import { UserContext } from "./UserContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -54,16 +53,10 @@ HideOnScroll.propTypes = {
 function NavBar(props) {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [open, setOpen] = useState(false);
-  const {
-    loggedInUser,
-    userAvatar,
-    setUserAvatar,
-    isLoggedIn,
-    setIsLoggedIn,
-    setLoggedInUser,
-    setPrevPath,
-  } = useContext(UserContext);
+
   const navigate = useNavigate();
+
+  console.log("NavBar - username: ", window.localStorage.getItem("username"));
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -238,20 +231,23 @@ function NavBar(props) {
               </ThemeProvider>
 
               <ThemeProvider theme={CustomTheme}>
-                {isLoggedIn && (
+                {window.localStorage.getItem("isLoggedIn") && (
                   <Typography
                     sx={{
                       display: { xs: "none", md: "flex" },
                       pr: "0.8rem",
                     }}
                   >
-                    {loggedInUser}
+                    {window.localStorage.getItem("username")}
                   </Typography>
                 )}
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip>
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar alt="User avatar" src={userAvatar} />
+                      <Avatar
+                        alt="User avatar"
+                        src={window.localStorage.getItem("avatar")}
+                      />
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -270,15 +266,14 @@ function NavBar(props) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {isLoggedIn ? (
+                    {window.localStorage.getItem("isLoggedIn") ? (
                       <MenuItem key={"login"} onClick={handleCloseUserMenu}>
                         <Typography
                           textAlign="center"
                           onClick={() => {
-                            setLoggedInUser("");
-                            setIsLoggedIn(false);
-                            setUserAvatar("");
-                            setPrevPath(window.location.pathname);
+                            window.localStorage.removeItem("username");
+                            window.localStorage.removeItem("avatar");
+                            window.localStorage.removeItem("isLoggedIn");
                           }}
                         >
                           Log out
@@ -296,7 +291,7 @@ function NavBar(props) {
                         </Typography>
                       </MenuItem>
                     )}
-                    {!isLoggedIn && (
+                    {!window.localStorage.getItem("isLoggedIn") && (
                       <MenuItem key={"signup"} onClick={handleCloseUserMenu}>
                         <Typography
                           textAlign="center"

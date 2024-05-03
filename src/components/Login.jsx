@@ -59,6 +59,9 @@ export default function SignIn() {
         setLoggedInUser(res.data[0]);
         setUserAvatar(res.data[1]);
         setIsLoggedIn(true);
+        window.localStorage.setItem("username", res.data[0]);
+        window.localStorage.setItem("avatar", res.data[1]);
+        window.localStorage.setItem("isLoggedIn", true);
       })
       .catch((err) => {
         console.log(err);

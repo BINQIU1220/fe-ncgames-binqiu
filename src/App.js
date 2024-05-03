@@ -8,14 +8,27 @@ import Deleted from "./components/Deleted";
 import LandingPage from "./components/LandingPage";
 import SignUp from "./components/Signup";
 import Login from "./components/Login";
+import Loggedin from "./components/Loggedin";
 
 function App() {
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
   return (
     <BrowserRouter>
       <div className="App">
         <div className="contents-container">
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route
+              path="/"
+              element={loggedIn ? <Loggedin /> : <LandingPage />}
+            />
+            <Route
+              path="/signup"
+              element={loggedIn ? <Loggedin /> : <SignUp />}
+            />
+            <Route
+              path="/login"
+              element={loggedIn ? <Loggedin /> : <Login />}
+            />
             <Route
               path="/reviews/category_name/:category_name"
               element={<InitialHome />}
@@ -50,8 +63,6 @@ function App() {
               element={<Deleted />}
             />
             <Route path="/oops" element={<ErroHandle />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>

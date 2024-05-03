@@ -71,6 +71,7 @@ function SignUp() {
         data.get("email")
       )
         .then((res) => {
+          console.log(res);
           setLoggedInUser(res.username);
           setUserAvatar(res.avatar_url);
           setIsLoggedIn(true);

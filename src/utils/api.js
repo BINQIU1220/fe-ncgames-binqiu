@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gamesApi = axios.create({
-  baseURL: "https://be-nc-games-workplace.onrender.com/api",
+  baseURL: "http://localhost:9090/api",
 });
 
 export const getCategories = () => {
@@ -97,6 +97,7 @@ export const userSignup = (username, password, avatar, email) => {
           "Username already exists. Try logging in with your corresponding email or register with another username please."
         );
       } else {
+        console.log(res);
         return res.data.rows[0];
       }
     })
