@@ -14,6 +14,9 @@ const SingleReview = () => {
   const review_id = reviewId[reviewId.length - 1];
   const navigate = useNavigate();
 
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
+  const username = window.localStorage.getItem("username");
+
   useEffect(() => {
     getReviewsByIdy(review_id).then((res) => {
       setSingleReview(res);
@@ -23,7 +26,7 @@ const SingleReview = () => {
   const handleSubmission = (event) => {
     event.preventDefault();
     navigate(`/reviews/${review_id}/comments/success`);
-    postComment(newComment, review_id);
+    postComment(newComment, review_id, username);
   };
 
   const handleComments = () => {
@@ -64,15 +67,22 @@ const SingleReview = () => {
                     className="add-comment-input"
                     type="text"
                     name="comment-input"
-                    placeholder="Add your comment!"
+                    placeholder={
+                      loggedIn
+                        ? "Add your comment!"
+                        : "Log in to make a comment!"
+                    }
                     required
+                    disabled={loggedIn ? false : true}
                     onChange={(event) => {
                       setNewComment(event.target.value);
                     }}
                   ></input>
+
                   <button
                     className="submit-comment-btn other-buttons"
                     type="submit"
+                    disabled={loggedIn ? false : true}
                   >
                     Go!
                   </button>

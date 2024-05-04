@@ -39,6 +39,10 @@
     font-size: 0.75rem;
 }
 
+.submit-comment-btn:disabled{
+    background-color: #fff;
+}
+
 .add-comment-input {
     border: 3px solid #fff;
     border-radius: 26px;
@@ -47,6 +51,10 @@
     font-weight: 600;
     width: 50%;
     margin-top: 0;
+}
+
+.add-comment-input:disabled{
+    background-color: #fff;
 }
 
 #thumb-up {

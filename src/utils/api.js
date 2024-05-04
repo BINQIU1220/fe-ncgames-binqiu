@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gamesApi = axios.create({
-  baseURL: "http://localhost:9090/api",
+  baseURL: "https://be-nc-games-workplace.onrender.com/api",
 });
 
 export const getCategories = () => {
@@ -70,9 +70,9 @@ export const getAllCommentsById = (review_id) => {
     });
 };
 
-export const postComment = (body, review_id) => {
+export const postComment = (body, review_id, username) => {
   return gamesApi.post(`reviews/${review_id}/comments`, {
-    username: "cooljmessy",
+    username: username,
     body: body,
   });
 };

@@ -71,7 +71,9 @@ function SignUp() {
         data.get("email")
       )
         .then((res) => {
-          console.log(res);
+          window.localStorage.setItem("username", res.username);
+          window.localStorage.setItem("avatar", res.avatar_url);
+          window.localStorage.setItem("isLoggedIn", true);
           setLoggedInUser(res.username);
           setUserAvatar(res.avatar_url);
           setIsLoggedIn(true);
