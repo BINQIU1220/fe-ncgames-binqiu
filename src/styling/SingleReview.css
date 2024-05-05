@@ -53,6 +53,10 @@
     margin-top: 0;
 }
 
+.add-comment-input:disabled{
+    background-color: #fff;
+}
+
 #thumb-up {
     margin-right: 0.5rem;
 }
