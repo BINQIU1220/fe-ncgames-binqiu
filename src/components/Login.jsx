@@ -43,13 +43,10 @@ const defaultTheme = createTheme({
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const {
-    setLoggedInUser,
-    setUserAvatar,
-    setIsLoggedIn,
-    isLoggedIn,
-    prevPath,
-  } = useContext(UserContext);
+  const { setLoggedInUser, setUserAvatar, setIsLoggedIn, prevPath } =
+    useContext(UserContext);
+
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -69,12 +66,12 @@ export default function SignIn() {
   };
 
   useEffect(() => {
-    if (isLoggedIn && prevPath !== "/") {
+    if (loggedIn && prevPath !== "/") {
       navigate(prevPath);
-    } else if (isLoggedIn) {
+    } else if (loggedIn) {
       navigate("/reviews/category_name/all");
     }
-  }, [isLoggedIn, prevPath, navigate]);
+  }, [loggedIn, prevPath, navigate]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
