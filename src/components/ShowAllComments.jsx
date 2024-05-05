@@ -11,6 +11,8 @@ const ShowAllComments = (props) => {
 
   let review_id = props.id;
 
+  const username = window.localStorage.getItem("username");
+
   useEffect(() => {
     getAllCommentsById(review_id).then((res) => {
       setComments(res);
@@ -36,6 +38,12 @@ const ShowAllComments = (props) => {
                 } by ${prop.author}`}{" "}
                 <button
                   className="delete-comment-btn other-buttons"
+                  title={
+                    prop.author === username
+                      ? ""
+                      : "You can only delete your own comments!"
+                  }
+                  disabled={prop.author === username ? false : true}
                   onClick={() => {
                     deleteCommentsById(prop.comment_id);
                     navigate(`/reviews/${prop.review_id}/comments/deleted`);
